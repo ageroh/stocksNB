@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\published\stocks\</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Stocks.dll">
+      <publishTime>02/17/2015 11:39:55</publishTime>
+    </File>
+    <File Include="css/stocks.css">
+      <publishTime>02/17/2015 11:11:33</publishTime>
+    </File>
+    <File Include="GetStocksForWidget.aspx">
+      <publishTime>02/17/2015 10:37:40</publishTime>
+    </File>
+    <File Include="js/Flash.js">
+      <publishTime>02/17/2015 11:12:13</publishTime>
+    </File>
+    <File Include="js/jquery-1.8.3.min.js">
+      <publishTime>07/10/2013 11:47:59</publishTime>
+    </File>
+    <File Include="js/stocks.js">
+      <publishTime>02/17/2015 10:50:20</publishTime>
+    </File>
+    <File Include="media/Close.svg">
+      <publishTime>02/16/2015 18:03:36</publishTime>
+    </File>
+    <File Include="media/metoxes - real time.swf">
+      <publishTime>01/28/2011 15:28:00</publishTime>
+    </File>
+    <File Include="media/metoxes.swf">
+      <publishTime>01/02/2012 19:11:49</publishTime>
+    </File>
+    <File Include="media/newspapers-widget.jpg">
+      <publishTime>02/01/2011 14:20:02</publishTime>
+    </File>
+    <File Include="media/stocks/metoxesBottom.jpg">
+      <publishTime>06/27/2013 16:53:54</publishTime>
+    </File>
+    <File Include="media/stocks/metoxesTop.jpg">
+      <publishTime>06/27/2013 18:32:32</publishTime>
+    </File>
+    <File Include="media/stocks/metoxes_V2.jpg">
+      <publishTime>07/10/2014 10:24:02</publishTime>
+    </File>
+    <File Include="media/stocks/metoxes_V3.jpg">
+      <publishTime>07/10/2014 10:24:02</publishTime>
+    </File>
+    <File Include="media/stocks/newsbeast_01.jpg">
+      <publishTime>04/19/2013 15:09:55</publishTime>
+    </File>
+    <File Include="media/tp-logo.png">
+      <publishTime>12/23/2010 15:01:51</publishTime>
+    </File>
+    <File Include="NBScripts/stocksIndex.sql">
+      <publishTime>02/16/2015 14:55:51</publishTime>
+    </File>
+    <File Include="NBScripts/StocksIndex.xslt">
+      <publishTime>02/16/2015 17:16:34</publishTime>
+    </File>
+    <File Include="NBScripts/stocksWidget.sql">
+      <publishTime>02/16/2015 11:02:11</publishTime>
+    </File>
+    <File Include="NBScripts/stocksWidget.xslt">
+      <publishTime>02/16/2015 13:24:38</publishTime>
+    </File>
+    <File Include="NBScripts/stocksWidgetXML.sql">
+      <publishTime>02/16/2015 11:03:02</publishTime>
+    </File>
+    <File Include="NBScripts/stocksWidgetXML.xslt">
+      <publishTime>02/16/2015 11:06:10</publishTime>
+    </File>
+    <File Include="Stocks.aspx">
+      <publishTime>02/16/2015 18:39:26</publishTime>
+    </File>
+    <File Include="StocksPage.aspx">
+      <publishTime>02/17/2015 11:09:15</publishTime>
+    </File>
+    <File Include="StocksWidget.aspx">
+      <publishTime>02/17/2015 11:07:28</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>02/17/2015 11:39:55</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
