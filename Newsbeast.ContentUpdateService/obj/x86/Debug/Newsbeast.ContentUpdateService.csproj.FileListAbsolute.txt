@@ -1,0 +1,14 @@
+C:\Users\user\Documents\Visual Studio 2010\Projects\Newsbeast.ContentUpdateService\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\user\Documents\Visual Studio 2010\Projects\Newsbeast.ContentUpdateService\bin\Debug\Newsbeast.ContentUpdateService.exe.config
+C:\Users\user\Documents\Visual Studio 2010\Projects\Newsbeast.ContentUpdateService\bin\Debug\Newsbeast.ContentUpdateService.exe
+C:\Users\user\Documents\Visual Studio 2010\Projects\Newsbeast.ContentUpdateService\bin\Debug\Newsbeast.ContentUpdateService.pdb
+C:\Users\user\Documents\Visual Studio 2010\Projects\Newsbeast.ContentUpdateService\bin\Debug\NLog.dll
+C:\Users\user\Documents\Visual Studio 2010\Projects\Newsbeast.ContentUpdateService\obj\x86\Debug\Newsbeast.ContentUpdateService.exe
+C:\Users\user\Documents\Visual Studio 2010\Projects\Newsbeast.ContentUpdateService\obj\x86\Debug\Newsbeast.ContentUpdateService.pdb
+C:\Users\Argiris\Documents\newsbeast\Newsbeast.ContentUpdateService\bin\Debug\Newsbeast.ContentUpdateService.exe.config
+C:\Users\Argiris\Documents\newsbeast\Newsbeast.ContentUpdateService\obj\x86\Debug\Newsbeast.ContentUpdateService.exe
+C:\Users\Argiris\Documents\newsbeast\Newsbeast.ContentUpdateService\obj\x86\Debug\Newsbeast.ContentUpdateService.pdb
+C:\Users\Argiris\Documents\newsbeast\Newsbeast.ContentUpdateService\bin\Debug\Newsbeast.ContentUpdateService.exe
+C:\Users\Argiris\Documents\newsbeast\Newsbeast.ContentUpdateService\bin\Debug\Newsbeast.ContentUpdateService.pdb
+C:\Users\Argiris\Documents\newsbeast\Newsbeast.ContentUpdateService\obj\x86\Debug\Newsbeast.ContentUpdateService.csprojResolveAssemblyReference.cache
+C:\Users\Argiris\Documents\newsbeast\Newsbeast.ContentUpdateService\bin\Debug\NLog.dll

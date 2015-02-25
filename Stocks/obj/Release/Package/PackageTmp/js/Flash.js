@@ -275,7 +275,36 @@ var Flash = {
 				).replace(/metoxes\.swf/ig, 'metoxes.swf?v=1');
         }
         else {
-            return '<div class="real-time">        <img alt="" src="media/real-on.png" />    </div>    <h1>        ÙÈÏ›Ú ÏÂÙÔ˜˛Ì</h1>    <div>    </div>    <table width="100%" cellspacing="1" border="0" class="head">        <tbody>            <tr>                <th>                    ”’Ã¬œÀœ                </th>                <th>                    ‘…Ã«                </th>                <th>                    Ã≈‘.                </th>                <th>                    Ã≈‘.%                </th>                <th>                    œ√ œ”                </th>            </tr>        </tbody>    </table>    <div style="height: 179px; position: relative; overflow: hidden;" class="scroll-viewport">        <div class="scrolled" style="position: absolute;">        </div>    </div>    <div class="stock-search">        <input type="text" /><input type="image" src="media/stock-search-input-img.png" />    </div>    <div class="stock-nav">        <ul>            <li><a>                <img alt="" src="media/stock-search-arrow-down.png" /></a></li>            <li><a>                <img alt="" src="media/stock-search-arrow-small-down.png" /></a></li>            <li><a>                <img alt="" src="media/stock-search-reload.png" /></a></li>            <li><a>                <img alt="" src="media/stock-search-arrow-small-up.png" /></a></li>            <li class="last"><a>                <img alt="" src="media/stock-search-arrow-up.png" /></a></li>        </ul>    </div>';
+        return '<div class="real-time">        <img alt="" src="media/real-on.png"></img>    </div> ' +
+             '  <h1>        ÙÈÏ›Ú ÏÂÙÔ˜˛Ì</h1>                                                  ' +
+             '  <div>    </div>                                                                 ' +
+             '  <table width="100%" cellspacing="1" border="0" class="head">                    ' + 
+             '     <tbody>                                                                      ' +
+             '        <tr>                                                                      ' +
+             '           <th>                    ”’Ã¬œÀœ                </th>                   ' + 
+             '           <th>                    ‘…Ã«                </th>                      ' +
+             '           <th>                    Ã≈‘.                </th>                      ' +
+             '           <th>                    Ã≈‘.%                </th>                     ' +
+             '           <th>                    œ√ œ”                </th>                     ' +
+             '         </tr>                                                                       ' +
+             '     </tbody>                                                                                             ' +
+             '   </table>                                                                                                 ' +
+             '   <div style="height: 179px; position: relative; overflow: hidden;" class="scroll-viewport">                ' +
+             '      <div class="scrolled" style="position: absolute;">        </div>                                         ' +
+             '  </div>  ' +
+             '   <div class="stock-search">        <input type="text" /><input type="image" src="media/stock-search-input-img.png" />    </div>  ' + 
+             '   <div class="stock-nav">             ' +
+             '      <ul>                                                                                                                 ' +
+             '        <li><a>                <img alt="" src="media/stock-search-arrow-down.png"></img></a></li>                        ' +
+             '         <li><a>                <img alt="" src="media/stock-search-arrow-small-down.png"></img></a></li>                  ' +
+             '         <li><a>                <img alt="" src="media/stock-search-reload.png"></img></a></li>                            ' +
+             '         <li><a>                <img alt="" src="media/stock-search-arrow-small-up.png"></img></a></li>                    ' +
+             '         <li class="last"><a>                <img alt="" src="media/stock-search-arrow-up.png"></img></a></li>             ' +
+             '      </ul>        ' +
+             '   </div>';
+
+
+
         }
     },
     Create: function () {

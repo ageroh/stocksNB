@@ -1,0 +1,7 @@
+C:\Users\Argiris\Documents\newsbeast\Newsbeast.ContentUpdateService\bin\Release\Newsbeast.ContentUpdateService.exe.config
+C:\Users\Argiris\Documents\newsbeast\Newsbeast.ContentUpdateService\bin\Release\Newsbeast.ContentUpdateService.exe
+C:\Users\Argiris\Documents\newsbeast\Newsbeast.ContentUpdateService\bin\Release\Newsbeast.ContentUpdateService.pdb
+C:\Users\Argiris\Documents\newsbeast\Newsbeast.ContentUpdateService\bin\Release\NLog.dll
+C:\Users\Argiris\Documents\newsbeast\Newsbeast.ContentUpdateService\obj\x86\Release\Newsbeast.ContentUpdateService.exe
+C:\Users\Argiris\Documents\newsbeast\Newsbeast.ContentUpdateService\obj\x86\Release\Newsbeast.ContentUpdateService.pdb
+C:\Users\Argiris\Documents\newsbeast\Newsbeast.ContentUpdateService\obj\x86\Release\Newsbeast.ContentUpdateService.csprojResolveAssemblyReference.cache
