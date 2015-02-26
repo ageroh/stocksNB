@@ -76,21 +76,6 @@ namespace Newspapers
 
                     LoadHTMLNoPub.InnerHtml = writer3.ToString();
 
-
-                    try
-                    {
-                        string MyXsltPath = Server.MapPath("~/NBScripts/NewsPapersContainer300_V2.xslt");
-                        XslCompiledTransform XSLTransform = new XslCompiledTransform();
-                        XSLTransform.Load(MyXsltPath, new XsltSettings(false, true), null);//, settings, null);
-                        XSLTransform.Transform(xmlDocAllNewspapers, null, writer4);
-                    }
-                    catch (FileNotFoundException eex) { return; }
-
-                    WidgetNP.InnerHtml = writer4.ToString();
-
-
-                    // WidgetAllPapers ?
-
                     
                 }
 

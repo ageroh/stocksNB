@@ -29,9 +29,7 @@
 				        <div id="LoadHTMLPager" runat="server"></div>
                         <div id="LoadHTMLCategories" runat="server"></div>
 
-                        <div id="WidgetNP" runat="server">
-                            <div id="WidgetAllPapers" runat="server"></div>
-                        </div>
+
 			        </div>
 		        </div>	
 	        </div>

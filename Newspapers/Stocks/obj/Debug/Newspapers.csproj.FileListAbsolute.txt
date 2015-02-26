@@ -5,3 +5,12 @@ C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Newspapers\Stocks\bin\NLo
 C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Newspapers\Stocks\obj\Debug\Stocks.dll
 C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Newspapers\Stocks\obj\Debug\Stocks.pdb
 C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Newspapers\Stocks\obj\Debug\Newspapers.csprojResolveAssemblyReference.cache
+C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newspapers\Stocks\obj\Debug\Newspapers.csprojResolveAssemblyReference.cache
+C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newspapers\Stocks\obj\Debug\Stocks.dll
+C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newspapers\Stocks\bin\Stocks.dll
+C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newspapers\Stocks\bin\Stocks.pdb
+C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newspapers\Stocks\bin\NLog.dll
+C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newspapers\Stocks\bin\NLog.xml
+C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newspapers\Stocks\obj\Debug\Stocks.pdb
+C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newspapers\Stocks\bin\ImageResizer.dll
+C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newspapers\Stocks\bin\ImageResizer.xml

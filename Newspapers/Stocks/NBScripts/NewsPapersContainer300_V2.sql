@@ -1,6 +1,6 @@
 --$set cachable false
 declare @isClicked int;
-SET @isClicked = QueryString.GetInt('isClicked',0);
+SET @isClicked = 0;
 declare @startDate datetime;
 set @startDate =GETDATE();
 
@@ -16,7 +16,7 @@ if(@cats != 'ALL')
 begin
     INSERT INTO @CatCodes (codes)
     select value from dbo.Split(@cats,',')
-    where Value<>''
+    where Value <> ''
 end
 else
 begin

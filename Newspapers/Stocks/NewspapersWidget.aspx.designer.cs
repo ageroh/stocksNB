@@ -22,40 +22,13 @@ namespace Newspapers {
         protected global::System.Web.UI.HtmlControls.HtmlLink Link1;
         
         /// <summary>
-        /// LoadHTMLNoPub control.
+        /// WidgetContainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LoadHTMLNoPub;
-        
-        /// <summary>
-        /// LoadHTMLPager control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LoadHTMLPager;
-        
-        /// <summary>
-        /// LoadHTMLCategories control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LoadHTMLCategories;
-        
-        /// <summary>
-        /// WidgetNP control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl WidgetNP;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl WidgetContainer;
         
         /// <summary>
         /// WidgetAllPapers control.

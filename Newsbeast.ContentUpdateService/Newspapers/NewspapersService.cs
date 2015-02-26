@@ -9,6 +9,7 @@ using System.Text;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Newsbeast.ContentUpdateService.Newspapers
 {
@@ -412,7 +413,19 @@ namespace Newsbeast.ContentUpdateService.Newspapers
         {
             WebClient webClient = new WebClient();
             string fileName2 = string.Format("{0}{1}", this.Settings.PhysicalPath, fileName);
+
+            string filenameClean = (fileName2.Contains(".jpg") ? fileName2.Substring(0, fileName2.IndexOf(".jpg")) : fileName2);
+            // fetch and download big image 
             webClient.DownloadFile(url, fileName2);
+
+            // open downloaded image..
+            Image image1 = Image.FromFile(fileName2, true);
+
+            // resize to custom 2 dimensions
+            if ( File.Exists(filenameClean + "_277x343.jpg") )
+                File.Delete(filenameClean + "_277x343.jpg");
+            FixedSize(image1, 277, 343).Save(filenameClean + "_277x343.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+
         }
         private string MakeRelativeWebPath(string FileName)
         {
@@ -433,6 +446,51 @@ namespace Newsbeast.ContentUpdateService.Newspapers
         private string CreateUrl(DateTime dateTime)
         {
             return string.Format(this.Settings.UrlFormat, this.Settings.APIKey, dateTime);
+        }
+
+        static Image FixedSize(Image imgPhoto, int Width, int Height)
+        {
+            int sourceWidth = imgPhoto.Width;
+            int sourceHeight = imgPhoto.Height;
+            int sourceX = 0;
+            int sourceY = 0;
+            int destX = 0;
+            int destY = 0;
+
+            float nPercent = 0;
+            float nPercentW = 0;
+            float nPercentH = 0;
+
+            nPercentW = ((float)Width / (float)sourceWidth);
+            nPercentH = ((float)Height / (float)sourceHeight);
+            if (nPercentH < nPercentW)
+            {
+                nPercent = nPercentH;
+                destX = System.Convert.ToInt16((Width - (sourceWidth * nPercent)) / 2);
+            }
+            else
+            {
+                nPercent = nPercentW;
+                destY = System.Convert.ToInt16((Height - (sourceHeight * nPercent)) / 2);
+            }
+
+            int destWidth = (int)(sourceWidth * nPercent);
+            int destHeight = (int)(sourceHeight * nPercent);
+
+            Bitmap bmPhoto = new Bitmap(Width, Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            bmPhoto.SetResolution(imgPhoto.HorizontalResolution, imgPhoto.VerticalResolution);
+
+            Graphics grPhoto = Graphics.FromImage(bmPhoto);
+            grPhoto.Clear(Color.White);
+            grPhoto.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+
+            grPhoto.DrawImage(imgPhoto,
+                new Rectangle(destX, destY, destWidth, destHeight),
+                new Rectangle(sourceX, sourceY, sourceWidth, sourceHeight),
+                GraphicsUnit.Pixel);
+
+            grPhoto.Dispose();
+            return bmPhoto;
         }
     }
 }

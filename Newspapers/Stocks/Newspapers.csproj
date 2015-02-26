@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ImageResizer">
+      <HintPath>..\packages\ImageResizer.3.4.3\lib\ImageResizer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="NLog">
       <HintPath>..\packages\NLog.2.1.0\lib\net20\NLog.dll</HintPath>
@@ -60,6 +63,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\thickbox_newspapers.css" />
+    <Content Include="js\jquery.cycle.all.min.js" />
+    <Content Include="js\jquery.innerfade.js" />
+    <Content Include="js\jquery.lightbox-0.5.min.js" />
     <Content Include="NBScripts\NewsPapersWidget.sql" />
     <Content Include="NBScripts\NewsPapersWidget.xslt" />
     <Content Include="newspapersBuilderWidget.aspx" />

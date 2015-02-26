@@ -17,6 +17,9 @@ using System.Web.Configuration;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
+using System.Web.UI.HtmlControls;
+using ImageResizer;
+
 
 
 namespace Newspapers
@@ -33,26 +36,62 @@ namespace Newspapers
                         , this.Request.QueryString["tp"]
                         , this.Request.QueryString["pbid"]
                         , this.Request.QueryString["isClicked"]
-                        );
+                );
 
+                StringWriter writer4 = new StringWriter();
+                StringWriter WidgetNP = new StringWriter();
+
+
+                XmlDocument xmlDocWidgetcontainer = produceXMLfromSQL("NewsPapersContainer300_V2");
                 XmlDocument xmlDocAllNewspapers = produceXMLfromSQL("NewsPapersWidget", GetArgs(0));
 
-                //XsltSettings settings = new XsltSettings();
-                //settings.EnableScript = true;
-                StringWriter writer = new StringWriter();
+                try
+                {
+                    string MyXsltPath = Server.MapPath("~/NBScripts/NewsPapersContainer300_V2.xslt");
+                    XslCompiledTransform XSLTransform = new XslCompiledTransform();
+                    XSLTransform.Load(MyXsltPath, new XsltSettings(false, true), null);//, settings, null);
+                    XSLTransform.Transform(xmlDocWidgetcontainer, null, writer4);
+                }
+                catch (FileNotFoundException eex) { return; }
+
+
 
                 try
                 {
                     string MyXsltPath = Server.MapPath("~/NBScripts/NewsPapersWidget.xslt");
                     XslCompiledTransform XSLTransform = new XslCompiledTransform();
                     XSLTransform.Load(MyXsltPath, new XsltSettings(false, true), null);//, settings, null);
-                    XSLTransform.Transform(xmlDocAllNewspapers, null, writer);
+                    XSLTransform.Transform(xmlDocAllNewspapers, null, WidgetNP);
                 }
                 catch (FileNotFoundException eex) { return; }
 
-                WidgetAllPapers.InnerHtml = writer.ToString();
+                //HtmlGenericControl divControl = new HtmlGenericControl();
+                // divControl = this.Page.FindControl("mainFrame");
+                WidgetContainer.InnerHtml = writer4.ToString().Replace("<span>DYNAMICALLY_ADD_CONTENT</span>", WidgetNP.ToString());
                     
             }
+        }
+
+
+
+        [System.Web.Services.WebMethod(BufferResponse = false)]
+        public string RefreshNewspapers(string dtStr, string codesWidget, string hash, string tp, string pbid, string isClicked)
+        {
+            OnInit(dtStr,codesWidget, hash,tp, pbid,isClicked);
+
+            StringWriter WidgetNP = new StringWriter();
+            XmlDocument xmlDocAllNewspapers = produceXMLfromSQL("NewsPapersWidget", GetArgs(0));
+            try
+            {
+                string MyXsltPath = Server.MapPath("~/NBScripts/NewsPapersWidget.xslt");
+                XslCompiledTransform XSLTransform = new XslCompiledTransform();
+                XSLTransform.Load(MyXsltPath, new XsltSettings(false, true), null);//, settings, null);
+                XSLTransform.Transform(xmlDocAllNewspapers, null, WidgetNP);
+            }
+            catch (FileNotFoundException eex) { return ""; }
+
+            // return new htnl content to replace div.
+            return WidgetNP.ToString();
         }
 
 

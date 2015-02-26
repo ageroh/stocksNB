@@ -19,9 +19,6 @@
     <xsl:param name="prevDate4" select="All/Detail/prevDate4"/>
     <xsl:param name="prevDate5" select="All/Detail/prevDate5"/>
 
-    <h1>THIS : 
-      <xsl:value-of select="$prevDate1"/>
-    </h1>
     
     <div class="wrapper-big">
 
@@ -117,13 +114,8 @@
         </div>
 
         <div class="left">
-
-
-
-
-
           <div id="mainFrame" class="paper-big">
-            <tmplitem  alt="" renderinnermodules="true" id="NewsPapersWidgetIframe" templatename="NewsPapersShareXML" itemname="YellowModules.NewsPapersWidget" iswidget="true"/>
+            <span>DYNAMICALLY_ADD_CONTENT</span>
             <div class="arrows-big">
               <ul>
                 <li class="prev">
@@ -139,8 +131,7 @@
             </div>
           </div>
         </div>
-
-
+        
         <xsl:variable name="BuildWidget" select="concat('/?pid=154','&amp;la=1')"/>
         <div class="foot-big">
           <p class="footp">

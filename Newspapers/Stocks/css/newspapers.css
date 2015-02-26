@@ -53,7 +53,7 @@ a img 					{ border:none; line-height:0.1%; }
 a span					{ cursor:pointer; }
 address					{ font-style:italic; margin:0 0 1.5em 0; }
 blockquote				{ font-style:italic; margin:1em; }
-body					{ background-color:#efefef; color:#000; font-family:Arial, Helvetica, sans-serif; font-size:75%; line-height:120%; background:url(../../media/body.png) repeat-y scroll center top #EFEFEF }
+body					{ background-color:#efefef; color:#000; font-family:Arial, Helvetica, sans-serif; font-size:75%; line-height:120%; background:url(../media/body.png) repeat-y scroll center top #EFEFEF }
 button, input.button	{ border:none; cursor:pointer; font-family:Arial, Helvetica, sans-serif; margin:0; padding:0; vertical-align:middle; width:auto; }
 caption					{ font-weight:bold; margin-bottom:.2em; padding-left:5px; }
 dd						{ margin-left:15px; }

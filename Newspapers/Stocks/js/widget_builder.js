@@ -24,75 +24,8 @@ function removeByElement(arrayName,arrayElement)
             arrayName.splice(i,1); 
       } 
   }
-/*
-var NewsPaperAjaxRequest = function(Cats,theDate,Cover,page){
-	var hash = $("input:hidden[name='hash']").val();
-	var dt = $("input:hidden[name='dt']").val();
-	var targetPage = "widget-xml";
-	if(theDate!="")
-		dt = theDate;
-		
-	if(page=="small")	
-		targetPage = "widget-xml-200";
-		
-	$(".PapersWidgetPlayer").html("<img style='padding-left:80px;padding-top:120px;' src='themes/1/default/media/ajax-loader-widget.gif'/>");
-	$.ajax(
-	{
-		
-		url: "/newspapers/"+targetPage,
-		type: "GET",
-		cache: false,
-		asynch: true,
-		//data: "hash=" + hash + "&CatsSelected="+Cats+"&tp="+Cover+"&dt="+dt,
-		data: "hash=" + hash + "&tp="+Cover+"&dt="+dt,
-		success: function(response) {
-			$(".PapersWidgetPlayer").html("");
-			$("#mainFrame").html(response);
-			if(justClicked_class=="selected")
-				$("#share-cats-li-"+justClickedID+"").removeClass("selected");
-			else
-				$("#share-cats-li-"+justClickedID+"").addClass("selected");
-					
-			},
-			error: function(XMLHttpRequest, textStatus, errorThrown) { }
-	});
-	
-} 
-*/
- 
-var NewsPaperAjaxRequest = function(Cats,theDate,Cover,page){
-	var hash = $("input:hidden[name='hash']").val();
-	var dt = $("input:hidden[name='dt']").val();
-	var targetPage = "widget-xml";
-	if(theDate!="")
-		dt = theDate;
-		
-	if(page=="small")	
-		targetPage = "widget-xml-200";
-		
-	$(".PapersWidgetPlayer").html("<img style='padding-left:80px;padding-top:120px;' src='../media/ajax-loader-widget.gif'/>");
-	$.ajax(
-	{
-		
-		url: "/newspapers/"+targetPage,
-		type: "GET",
-		cache: true,
-		asynch: true,
-		//data: "hash=" + hash + "&CatsSelected="+Cats+"&tp="+Cover+"&dt="+dt,
-		data: "isClicked=1&hash=" + hash + "&tp="+Cover+"&dt="+dt,
-		success: function(response) {
-			$(".PapersWidgetPlayer").html("");
-			$("#mainFrame").html(response);
-			if(justClicked_class=="selected")
-				$("#share-cats-li-"+justClickedID+"").removeClass("selected");
-			else
-				$("#share-cats-li-"+justClickedID+"").addClass("selected");
-					
-			},
-			error: function(XMLHttpRequest, textStatus, errorThrown) { }
-	});
-	
-}   
+
+
   
 var ShareWidgetHandle = function()
 {	
@@ -167,53 +100,12 @@ var ShareWidgetHandle = function()
 			}
 	})
 	
-	*$(".dateLinks").click(function(e) {
-		newCats = catsAlreadySelected = $("input:hidden[name='CatsSelected']").val();
-		var dateLink = $(this).attr("id");
-		//alert(dateLink);
-		NewsPaperAjaxRequest(newCats,dateLink,1,"big");
-		
-	})
-	/*$(".share-cats").click(function(e) {
-		
-		justClickedID = $(this).attr("id");
-		catsAlreadySelected = $("input:hidden[name='CatsSelected']").val();
-		backOrFront = $("input:hidden[name='BackOrFront']").val();
-		CatsArray  = catsAlreadySelected.split(",");
-		
-		catExists = jQuery.inArray(justClickedID, CatsArray)				
-		
-		if(catExists == -1) //add category if not exists
-		{
-			doAjax = true;
-			CatsArray.push(justClickedID);		
-		}
-		else
-		{
-			
-			if(CatsArray.length>1)
-			{			
-				doAjax = true;
-				removeByElement(CatsArray,justClickedID)
-			}
-			else //last category left
-				doAjax = false;
-		}
-		
-		
-		var newCats = CatsArray.join(",");		
-		
-		
-		if(doAjax)
-		{
-			
-			justClicked_class = $("#share-cats-li-"+justClickedID).attr("class");			 
-			CatsSelected = $(this).attr("id");
-			NewsPaperAjaxRequest(newCats,"",backOrFront);
-				
-		}
-	 });
-	 */
+	$( ".dateLinks" ).on( "click", function(e) {
+	    newCats = catsAlreadySelected = $("input:hidden[name='CatsSelected']").val();
+	    var dateLink = $(this).attr("id");
+	    //alert(dateLink);
+	    NewsPaperAjaxRequest(newCats,dateLink,1,"big");
+	});
 
 }
 

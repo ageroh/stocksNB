@@ -8,31 +8,10 @@
 
 
     <div class="paperwidget1" style="background-color:#8E8E8E;min-height:416px;" >
-
-      <h6>Εφημερίδες</h6>
       <img src="../Media/ajax-loader-widget-paper.gif" id="ajax-loader-widget-paper" style="margin-left:130px"/>
-      <div class="PapersWidgetPlayer" style="margin:0 auto;display:none">
+      <!--<div class="PapersWidgetPlayer" style="margin:0 auto;display:none">-->
+      <div class="PapersWidgetPlayer" style="margin: 0px auto; height: 265px; position: relative;">
         <xsl:apply-templates select="/PaperesResults/details"/>
-      </div>
-
-      <div class="paperpager" >
-        <ul>
-          <li class="before">
-            <a href="javascript:void(0)">&#xA0;</a>
-          </li>
-          <li class="pause" id="pause_play_widget">
-            <a href="javascript:void(0)">&#xA0;</a>
-          </li>
-          <li class="after">
-            <a href="javascript:void(0)">&#xA0;</a>
-          </li>
-        </ul>
-
-      </div>
-      <div class="promo">
-        <p>
-          <a href="/NewsPaperCopyJS?CodesWidget={$CodesWidget}&amp;height=175&amp;width=550" class="thickbox" title="Βάλτε το Widget μας στο Website σας!">Βάλτε το Widget μας στο Website σας!</a>
-        </p>
       </div>
     </div>
   </xsl:template>
@@ -42,7 +21,7 @@
     <xsl:variable name="PaperLink" select="concat('/?pid=85','&amp;la=1','&amp;pbid=',pbid)"/>
     <a href="{$PaperLink}" title="{Title} - {paperUrl}">
       <!--<img title="{Title}" alt="{Title}" src="{Image:AnchoredFit(publ_photo, 277, 343,'Top')}"/>-->
-      <img title="{Title}" alt="{Title}" src="http://dev.newsbeast.gr/{publ_photo}" />
+      <img title="{Title}" alt="{Title}" src="http://dev.newsbeast.gr/{publ_photo_277x343}" />
     </a>
 
   </xsl:template>
