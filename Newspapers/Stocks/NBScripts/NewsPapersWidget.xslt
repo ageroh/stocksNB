@@ -7,7 +7,7 @@
   <xsl:template match="/">
 
 
-    <div class="paperwidget1" style="background-color:#8E8E8E;min-height:416px;" >
+    <div class="paperwidget1">
       <img src="../Media/ajax-loader-widget-paper.gif" id="ajax-loader-widget-paper" style="margin-left:130px"/>
       <!--<div class="PapersWidgetPlayer" style="margin:0 auto;display:none">-->
       <div class="PapersWidgetPlayer" style="margin: 0px auto; height: 265px; position: relative;">

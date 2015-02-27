@@ -29,7 +29,8 @@
 
 </head>
 <body>
-
+    <form runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true"/>
     
     <div id="WidgetContainer" runat="server"></div>
     <div id="WidgetAllPapers" runat="server"></div>
@@ -42,36 +43,50 @@
     </script>
 
     <script type="text/javascript" src="js/widget_builder.js" charset="windows-1253" ></script>
-
+        
     <script type = "text/javascript">
-       
-        var NewsPaperAjaxRequest = function(Cats,theDate,Cover,page){
+
+        var NewsPaperAjaxRequest = function (Cats, theDate, Cover, page) {
             var targetPage = "widget-xml";
-		    if(page=="small")	
-                targetPage = "widget-xml-200";
-		
-            $(".PapersWidgetPlayer").html("<img style='padding-left:80px;padding-top:120px;' src='../media/ajax-loader-widget.gif'/>");
+            //if(page=="small")	
+            //    targetPage = "widget-xml-200";
+
+            // good ?
+            
+
+            //$(".PapersWidgetPlayer").html("<img style='padding-left:80px;padding-top:120px;' src='../media/ajax-loader-widget.gif'/>");
             $.ajax({
+
                 type: "POST",
-                cache: true,
-                asynch: true,
                 url: "NewspapersWidget.aspx/RefreshNewspapers",
-                data: { 
-                       dtStr: theDate
-                     , hash: getUrlVars()["hash"]
-                     , tp: Cover
-                     , pbid: getUrlVars()["pbid"]
-                     , isClicked : 1
-                },
+                data: JSON.stringify({ dtStr: theDate, hash: getUrlVars()["hash"], tp: Cover, pbid: '1', isClicked: '1' }),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: OnSuccess,
                 failure: function (response) {
                     alert(response.d);
                 }
-            });
-        }   
 
+            });
+        }
+
+           
+        function OnSuccess(response) {
+           // alert(response.d);
+
+            $(".PapersWidgetPlayer").html("");
+            $(response.d).replaceAll(".paperwidget1");
+
+            if (justClicked_class == "selected")
+                $("#share-cats-li-" + justClickedID + "").removeClass("selected");
+            else
+                $("#share-cats-li-" + justClickedID + "").addClass("selected");
+           
+        }
+    
+
+
+         
         function getUrlVars() {
             var vars = [], hash;
             var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
@@ -82,24 +97,11 @@
             }
             return vars;
         }
-    
-       function OnSuccess(response) {
-           alert("Success AJAX call!");
 
-           // replace existing div with new content!
-           //$(response.d).replaceAll(".paperwidget1");
-
-           $(".PapersWidgetPlayer").html("");
-           $("#mainFrame").html(response);
-           if (justClicked_class == "selected")
-               $("#share-cats-li-" + justClickedID + "").removeClass("selected");
-           else
-               $("#share-cats-li-" + justClickedID + "").addClass("selected");
-       }
 </script>
 
 
-
+        </form>
 
 </body>
 </html>

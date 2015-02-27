@@ -34,10 +34,10 @@
       <div class="main-big">
         <ul class="type">
           <li class="active" id="cover-front">
-            <a href="javascript:return false;">πρωτοσέλιδα</a>
+            <a href="javascript:void(0);">πρωτοσέλιδα</a>
           </li>
           <li id="cover-back">
-            <a href="javascript:return false;">οπισθόφυλλα</a>
+            <a href="javascript:void(0);">οπισθόφυλλα</a>
           </li>
           <li id="nbLogo">
             <a href="#" target="_blank"></a>
@@ -51,7 +51,7 @@
               <xsl:if test="ms:format-date($shortDate, 'd/M/yyyy') =  ms:format-date($prevDate1, 'd/M/yyyy')">
                 <xsl:attribute name="class">active</xsl:attribute>
               </xsl:if>
-              <a class="dateLinks" href="javascript:handleCssStatus(1);" id="{ms:format-date($prevDate1, 'MM/dd/yyyy')}">
+              <a class="dateLinks" href="javascript:handleCssStatus(1);" id="{ms:format-date($prevDate1, 'dd/MM/yyyy')}">
                 <xsl:value-of select="ms:format-date($prevDate1, 'dd')"/>
                 <br/>
                 <span>
@@ -63,7 +63,7 @@
               <xsl:if test="ms:format-date($shortDate, 'd/M/yyyy') =  ms:format-date($prevDate2, 'd/M/yyyy')">
                 <xsl:attribute name="class">active</xsl:attribute>
               </xsl:if>
-              <a class="dateLinks" href="javascript:handleCssStatus(2);" id="{ms:format-date($prevDate2, 'MM/dd/yyyy')}">
+              <a class="dateLinks" href="javascript:handleCssStatus(2);" id="{ms:format-date($prevDate2, 'dd/MM/yyyy')}">
                 <xsl:value-of select="ms:format-date($prevDate2, 'dd')"/>
                 <br/>
                 <span>
@@ -75,7 +75,7 @@
               <xsl:if test="ms:format-date($shortDate, 'd/M/yyyy') =  ms:format-date($prevDate3, 'd/M/yyyy')">
                 <xsl:attribute name="class">active</xsl:attribute>
               </xsl:if>
-              <a class="dateLinks" href="javascript:handleCssStatus(3);" id="{ms:format-date($prevDate3, 'MM/dd/yyyy')}">
+              <a class="dateLinks" href="javascript:handleCssStatus(3);" id="{ms:format-date($prevDate3, 'dd/MM/yyyy')}">
                 <xsl:value-of select="ms:format-date($prevDate3, 'dd')"/>
                 <br/>
                 <span>
@@ -88,7 +88,7 @@
                 <xsl:attribute name="class">active</xsl:attribute>
               </xsl:if>
 
-              <a class="dateLinks" href="javascript:handleCssStatus(4);" id="{ms:format-date($prevDate4, 'MM/dd/yyyy')}">
+              <a class="dateLinks" href="javascript:handleCssStatus(4);" id="{ms:format-date($prevDate4, 'dd/MM/yyyy')}">
                 <xsl:value-of select="ms:format-date($prevDate4, 'dd')"/>
                 <br/>
                 <span>
@@ -101,7 +101,7 @@
                 <xsl:attribute name="class">active</xsl:attribute>
               </xsl:if>
 
-              <a class="dateLinks" href="javascript:handleCssStatus(5);" id="{ms:format-date($prevDate5, 'MM/dd/yyyy')}">
+              <a class="dateLinks" href="javascript:handleCssStatus(5);" id="{ms:format-date($prevDate5, 'dd/MM/yyyy')}">
                 <xsl:value-of select="ms:format-date($prevDate5, 'dd')"/>
                 <br/>
                 <span>
@@ -122,10 +122,10 @@
                   <a href="javascript:return false;"></a>
                 </li>
                 <li class="pause" id="pause_play_widget">
-                  <a href="javascript:return false;"></a>
+                  <a href="javascript:void(0);"></a>
                 </li>
                 <li class="next">
-                  <a href="javascript:return false;"></a>
+                  <a href="javascript:void(0);"></a>
                 </li>
               </ul>
             </div>

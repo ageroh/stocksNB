@@ -15,13 +15,15 @@ using System.IO;
 using System.Text;
 using System.Web.Configuration;
 using System.Collections.Generic;
+using System.Web.Hosting;
 
 namespace Newspapers
 {
     public class Common : System.Web.UI.Page
     {
+        public static string path = HostingEnvironment.MapPath (@"~/NBScripts/");
 
-        public XmlDocument produceXMLfromSQL(String SQLFileQuery, string args)
+        public static XmlDocument produceXMLfromSQL(String SQLFileQuery, string args)
         {
             XmlDocument xdoc = new XmlDocument();
             SqlConnection cnn = null;
@@ -33,7 +35,7 @@ namespace Newspapers
                 cnn.ConnectionString = getConStringSQL();
                 cnn.Open();
 
-                string selectQry = File.ReadAllText(Server.MapPath(@"~/NBScripts/" + SQLFileQuery + ".sql"));
+                string selectQry = File.ReadAllText(path + SQLFileQuery + ".sql");
                 if (args != null)
                     selectQry = string.Format(selectQry, args);
 
@@ -64,7 +66,7 @@ namespace Newspapers
 
         }
 
-        public XmlDocument produceXMLfromSQL(String SQLFileQuery)
+        public static XmlDocument produceXMLfromSQL(String SQLFileQuery)
         {
             XmlDocument xdoc = new XmlDocument();
             SqlConnection cnn = null;
@@ -76,7 +78,7 @@ namespace Newspapers
                 cnn.ConnectionString = getConStringSQL();
                 cnn.Open();
 
-                string selectQry = File.ReadAllText(Server.MapPath(@"~/NBScripts/" + SQLFileQuery + ".sql"));
+                string selectQry = File.ReadAllText(path + SQLFileQuery + ".sql");
 
                 cmd = new SqlCommand(selectQry, cnn);
                 //cmd.Parameters.AddWithValue("@ID", ID);
@@ -108,7 +110,7 @@ namespace Newspapers
 
 
 
-        public string getConStringSQL()
+        public static string getConStringSQL()
         {
             try
             {
