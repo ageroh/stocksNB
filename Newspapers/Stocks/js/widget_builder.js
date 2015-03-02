@@ -103,6 +103,10 @@ var ShareWidgetHandle = function()
 	$( ".dateLinks" ).on( "click", function(e) {
 	    newCats = catsAlreadySelected = $("input:hidden[name='CatsSelected']").val();
 	    var dateLink = $(this).attr("id");
+
+	    // save also the date on input
+	    $("#mainFrame").find("input[name$='dt']").val(dateLink)
+
 	    //alert(dateLink);
 	    NewsPaperAjaxRequest(newCats,dateLink,1,"big");
 	});

@@ -62,6 +62,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\newspapers_main.css" />
     <Content Include="css\thickbox_newspapers.css" />
     <Content Include="Global.asax" />
     <Content Include="js\jquery.cycle.all.min.js" />
@@ -80,7 +81,9 @@
     <Content Include="js\widget_builder.js" />
     <Content Include="NBScripts\NewsPapersListXML.sql" />
     <Content Include="NBScripts\NewsPapersContainer300_V2.sql" />
-    <Content Include="NBScripts\NewsPapersContainer300_V2.xslt" />
+    <Content Include="NBScripts\NewsPapersContainer300_V2.xslt">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="NewsPapersMain.aspx" />
     <Content Include="css\newspapers.css" />
     <Content Include="js\jquery-1.8.3.min.js" />

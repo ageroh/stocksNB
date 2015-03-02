@@ -115,6 +115,11 @@
 
         <div class="left">
           <div id="mainFrame" class="paper-big">
+            <input type="hidden" name="CatsSelected" value="-1"/>
+            <input type="hidden" name="BackOrFront" value="1"/>
+            <input type="hidden" name="dt" /> 
+            <!--<input type="hidden" name="hash" value="f6b32c9893eb9ef81099a67da5629b37"/>
+            <input type="hidden" name="dt" value="03/02/2015"/>-->
             <span>DYNAMICALLY_ADD_CONTENT</span>
             <div class="arrows-big">
               <ul>
@@ -142,13 +147,6 @@
       </div>
     </div>
   </xsl:template>
-  <xsl:template match="/PaperesResults/details">
 
 
-    <xsl:variable name="PaperLink" select="concat('/?pid=85','&amp;la=1','&amp;pbid=',pbid)"/>
-
-    <a href="{$PaperLink}" title="{Title} - {paperUrl}" target="_top">
-      <img title="{Title}" alt="{Title}" src="{Image:AnchoredFit(publ_photo, 288, 300,'Top')}"/>
-    </a>
-  </xsl:template>
 </xsl:stylesheet>

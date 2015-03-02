@@ -3,14 +3,13 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:ext="http://exslt.org/common"
                 xmlns:msxsl="urn:schemas-microsoft-com:xslt"
-                xmlns:atcom="http://atcom.gr/"
                 xmlns:asp="asp.net"
                 xmlns:res="urn:Resource"
                 xmlns:ms="urn:schemas-microsoft-com:xslt"
                 xmlns:Urls="urn:Urls"
                 xmlns:NewsBeast="urn:NewsBeast"
                 xmlns:Image="urn:Image"
-                exclude-result-prefixes="NewsBeast xsl msxsl atcom asp res Image Urls ">
+                exclude-result-prefixes="NewsBeast xsl msxsl asp res Image Urls ">
 
   <xsl:param name="PageID"/>
   <xsl:param name="LanguageID"/>

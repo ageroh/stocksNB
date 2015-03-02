@@ -42,11 +42,13 @@ namespace Newspapers
                 );
 
                 StringWriter writer4 = new StringWriter();
+                StringWriter writer3 = new StringWriter();
                 StringWriter WidgetNP = new StringWriter();
 
 
                 XmlDocument xmlDocWidgetcontainer = produceXMLfromSQL("NewsPapersContainer300_V2");
                 XmlDocument xmlDocAllNewspapers = produceXMLfromSQL("NewsPapersWidget", GetArgs(0));
+                XmlDocument xmlDocdaysWithNoPublications = produceXMLfromSQL("daysWithNoPublications");
 
                 try
                 {
@@ -68,21 +70,32 @@ namespace Newspapers
                 }
                 catch (FileNotFoundException eex) { return; }
 
-                //HtmlGenericControl divControl = new HtmlGenericControl();
-                // divControl = this.Page.FindControl("mainFrame");
+
                 WidgetContainer.InnerHtml = writer4.ToString().Replace("<span>DYNAMICALLY_ADD_CONTENT</span>", WidgetNP.ToString());
+
+                try
+                {
+                    string MyXsltPath = Server.MapPath("~/NBScripts/daysWithNoPublications.xslt");
+                    XslCompiledTransform XSLTransform = new XslCompiledTransform();
+                    XSLTransform.Load(MyXsltPath, new XsltSettings(false, true), null);//, settings, null);
+                    XSLTransform.Transform(xmlDocdaysWithNoPublications, null, writer3);
+                }
+                catch (FileNotFoundException eex) { return; }
+
+                LoadHTMLNoPub.InnerHtml = writer3.ToString();
                     
             }
         }
 
-        //[System.Web.Services.WebMethod]
-        //public static string RefreshNewspapersTEST(string dtStr, string hash, int tp, string pbid, string isClicked)
-        //{
-        //    return "This is the great response! " + dtStr + " , hash" + hash + " tp" + tp + " pbid:" + pbid + " isClicked" + isClicked ; 
-        //}
-
-        
-
+        /// <summary>
+        /// Called from AJAX request in order to bring date's papers image to client.
+        /// </summary>
+        /// <param name="dtStr"></param>
+        /// <param name="hash"></param>
+        /// <param name="tp"></param>
+        /// <param name="pbid"></param>
+        /// <param name="isClicked"></param>
+        /// <returns></returns>
         [System.Web.Services.WebMethod]
         public static string RefreshNewspapers(string dtStr, string hash, int tp, string pbid, string isClicked)
         {

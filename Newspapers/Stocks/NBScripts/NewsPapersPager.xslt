@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
                 xmlns:msxsl="urn:schemas-microsoft-com:xslt" 
-                xmlns:atcom="http://atcom.gr/" 
                 xmlns:ext="http://exslt.org/common"
                 xmlns:asp="asp.net" 
                 xmlns:res="urn:Resource"
@@ -10,14 +9,14 @@
                 xmlns:QueryString="urn:QueryString" 
                 xmlns:NewsBeast="urn:NewsBeast" 
                 xmlns:Image="urn:Image" 
-                xmlns:Atcom="urn:Atcom"
-                exclude-result-prefixes="NewsBeast xsl msxsl atcom asp res Image Urls QueryString Atcom">
+                xmlns:Custom="urn:Custom"
+                exclude-result-prefixes="NewsBeast xsl msxsl asp res Image Urls QueryString Custom">
   <xsl:param name="QueryStringMask" select="'tp&lt;int&gt;dt&lt;string&gt;pct&lt;int&gt;'"/>
   <xsl:param name="QueryStringParam" select="'dt'"/>
   <xsl:param name="PublicationString"/>
   <xsl:output method="html" omit-xml-declaration="yes"/>
 
-  <msxsl:script implements-prefix="Atcom" language="c#">
+  <msxsl:script implements-prefix="Custom" language="c#">
     <msxsl:using namespace="System.Globalization"/><![CDATA[
     public string ToUpper(string s){
             return RemoveDiacritics(s.ToUpperInvariant()).ToUpperInvariant();
@@ -58,7 +57,66 @@
 
 
     <div class="papers-dates">
-      <!--<tmplitem itemname="YellowModules.NewsPapersToolbar" renderinnermodules="true" templatename="NewsPapersViewDropdown" id="NewsPapersToolbar"/> -->
+      <div class="kind-selector" xmlns:querystring="urn:QueryString">
+        <script type="text/javascript">
+
+      <![CDATA[ 
+          function parseUri(str) {
+          var o = parseUri.options,
+          m = o.parser[o.strictMode ? "strict" : "loose"].exec(str),
+          uri = {},
+          i = 14;
+
+          while (i--) uri[o.key[i]] = m[i] || "";
+
+          uri[o.q.name] = {};
+          uri[o.key[12]].replace(o.q.parser, function($0, $1, $2) {
+          if ($1) uri[o.q.name][$1] = $2;
+          });
+
+          return uri;
+          };
+
+          parseUri.options = {
+          strictMode: false,
+          key: ["source", "protocol", "authority", "userInfo", "user", "password", "host", "port", "relative", "path", "directory", "file", "query", "anchor"],
+          q: {
+          name: "queryKey",
+          parser: /(?:^|&)([^&=]*)=?([^&]*)/g
+          },
+          parser: {
+          strict: /^(?:([^:\/?#]+):)?(?:\/\/((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?))?((((?:[^?#\/]*\/)*)([^?#]*))(?:\?([^#]*))?(?:#(.*))?)/,
+          loose: /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/
+          }
+          };
+
+
+          function redirectPage(id)
+          {
+          var u = parseUri(window.location.href);
+          if(id == 2)
+          u.queryKey['tp'] = 2;
+          else
+          delete u.queryKey['tp'];
+          var query = [];
+          for (var p in u.queryKey) {
+          query.push(p + '=' + u.queryKey[p]);
+          }
+          window.location.href = u.path + '?' + query.join('&');
+          }
+          ]]>
+          
+        </script>
+        <select name="tp" id="tp" onchange="redirectPage(this.options[this.selectedIndex].value)">
+          <option value="1">
+            Πρωτοσέλιδα
+          </option>
+          <option value="2">
+            Οπισθόφυλλα
+          </option>
+        </select>
+      </div>
+
       <div id="NewsPapersToolbar" runat="server"></div>
       <div class="papers-date-wrapper">
         <div class="papers-dates-arrow left">
@@ -172,9 +230,9 @@
        });
      
     function isAvailable(date){
-        var dateAsString = date.getFullYear().toString() + "-" + (date.getMonth()+1).toString() + "-" + date.getDate();
-        var result = $.inArray( dateAsString, daysWithNoPublications) ==-1 ? [true] : [false];
-    return result;
+       var dateAsString = date.getFullYear().toString() + "-" + (date.getMonth()+1).toString() + "-" + date.getDate();
+       var result = $.inArray( dateAsString, daysWithNoPublications) ==-1 ? [true] : [false];
+       return result;
     }
 
     function redirectToNewDate(newDate)
@@ -187,7 +245,7 @@
 
       <div class="paper-calendar">
         <p>
-          <xsl:value-of select="Atcom:ToUpper(msxsl:format-date($Active,'d MMMM yyyy','el-gr'))"/>
+          <xsl:value-of select="Custom:ToUpper(msxsl:format-date($Active,'d MMMM yyyy','el-gr'))"/>
         </p>
         <input type="hidden" style="width:70px;display:block;" name="calendarDateSelected" id="calendarDateSelected" value="{msxsl:format-date(D,'dd/MM')}" onchange="redirectToNewDate($(this).val())"/>
       </div>

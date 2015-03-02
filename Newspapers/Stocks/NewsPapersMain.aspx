@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NewsPapersMain.aspx.cs" Inherits="Newspapers.NewsPaperToolbar" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NewsPapersMain.aspx.cs" Inherits="Newspapers.NewsPaperMain" %>
 
 <!DOCTYPE html>
 
