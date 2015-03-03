@@ -25,27 +25,27 @@ namespace Newspapers
 {
     public partial class NewsPaperMain : Common
     {
-        protected DateTime theDate;
-        protected int PapersCategory;
-        protected int PublicationID;
-        private string shortDate = string.Empty;
-        private string shortDateToday = string.Empty;
-        private string codesWidget = string.Empty;
-        private int filterPageType = 1;
-        protected bool HasCodes;
-        private string[] codeArr = new string[20];
-        protected string catCodeList = string.Empty;
-        protected bool isWidget;
+        protected static DateTime theDate;
+        protected static int PapersCategory;
+        protected static int PublicationID;
+        private static string shortDate = string.Empty;
+        private static string shortDateToday = string.Empty;
+        private static string codesWidget = string.Empty;
+        private static int filterPageType = 1;
+        protected static bool HasCodes;
+        private static string[] codeArr = new string[20];
+        protected static string catCodeList = string.Empty;
+        protected static bool isWidget;
 
         public string CatCodeList
         {
             get
             {
-                return this.catCodeList;
+                return catCodeList;
             }
             set
             {
-                this.catCodeList = value;
+                catCodeList = value;
             }
         }
 
@@ -53,11 +53,11 @@ namespace Newspapers
         {
             get
             {
-                return this.isWidget.ToString();
+                return isWidget.ToString();
             }
             set
             {
-                this.isWidget = bool.Parse(value);
+                isWidget = bool.Parse(value);
             }
         }
 
@@ -66,31 +66,95 @@ namespace Newspapers
         {
             if (!Page.IsPostBack)
             {
-                On_Init( Convert.ToDateTime(Request.QueryString["dt"]), Request.QueryString["codesWidget"], Int32.Parse(Request.QueryString["tp"]), Int32.Parse(Request.QueryString["pct"]), Int32.Parse(Request.QueryString["pbid"]));
-            }
+//                On_Init(Convert.ToDateTime(Request.QueryString["dt"]), Request.QueryString["codesWidget"], Int32.Parse(Request.QueryString["tp"]), Int32.Parse(Request.QueryString["pct"]), Int32.Parse(Request.QueryString["pbid"]));
 
+                On_Init(this.Request.QueryString["dt"]
+                        , this.Request.QueryString["tp"]
+                        , this.Request.QueryString["pbid"]
+                        , this.Request.QueryString["isClicked"]
+                );
+
+                // produce XML from SQL queries.
+                XmlDocument xmlDocNewsPapersPager = produceXMLfromSQL("NewsPapersPager");
+                XmlDocument xmlDocNewsPaperCategories = produceXMLfromSQL("NewsPaperCategories");
+                XmlDocument xmlDocdaysWithNoPublications = produceXMLfromSQL("daysWithNoPublications");
+
+                XmlDocument xmlDocAllNewspapers = produceXMLfromSQL("NewsPapersContainer300_V2");
+
+                //XsltSettings settings = new XsltSettings();
+                //settings.EnableScript = true;
+                StringWriter writer = new StringWriter();           // write results of XSL transformations 
+                StringWriter writer2 = new StringWriter();
+                StringWriter writer3 = new StringWriter();
+                StringWriter writer4 = new StringWriter();
+
+
+                if (xmlDocNewsPapersPager != null && xmlDocNewsPaperCategories != null)
+                {
+                    try
+                    {
+                        string MyXsltPath = Server.MapPath("~/NBScripts/NewsPapersPager.xslt");
+                        XslCompiledTransform XSLTransform = new XslCompiledTransform();
+                        XSLTransform.Load(MyXsltPath, new XsltSettings(false, true), null);//, settings, null);
+                        XSLTransform.Transform(xmlDocNewsPapersPager, null, writer);
+                    }
+                    catch (FileNotFoundException eex) { return; }
+
+                    LoadHTMLPager.InnerHtml = writer.ToString();
+
+
+
+                    try
+                    {
+                        string MyXsltPath = Server.MapPath("~/NBScripts/NewsPaperCategories.xslt");
+                        XslCompiledTransform XSLTransform = new XslCompiledTransform();
+                        XSLTransform.Load(MyXsltPath, new XsltSettings(false, true), null);//, settings, null);
+                        XSLTransform.Transform(xmlDocNewsPapersPager, null, writer2);
+                    }
+                    catch (FileNotFoundException eex) { return; }
+
+                    LoadHTMLCategories.InnerHtml = writer2.ToString();
+
+
+                    try
+                    {
+                        string MyXsltPath = Server.MapPath("~/NBScripts/daysWithNoPublications.xslt");
+                        XslCompiledTransform XSLTransform = new XslCompiledTransform();
+                        XSLTransform.Load(MyXsltPath, new XsltSettings(false, true), null);//, settings, null);
+                        XSLTransform.Transform(xmlDocdaysWithNoPublications, null, writer3);
+                    }
+                    catch (FileNotFoundException eex) { return; }
+
+                    LoadHTMLNoPub.InnerHtml = writer3.ToString();
+
+
+                    GetPublicationDetails();
+
+                }
+
+            }
         }
 
         
-        protected virtual string GetCommandTextTestArgs()
+        protected string GetCommandTextTestArgs()
         {
             string text = string.Empty;
             string arg = string.Empty;
             string str = string.Empty;
             string text2 = string.Empty;
-            if (this.PapersCategory != 0 && !this.isWidget)
+            if (PapersCategory != 0 && !isWidget)
             {
-                text = " AND Category= " + this.PapersCategory.ToString() + " ";
+                text = " AND Category= " + PapersCategory.ToString() + " ";
             }
-            arg = " AND DATEDIFF(d,publ_date,'" + this.shortDate + "')=0 ";
-            if (this.isWidget)
+            arg = " AND DATEDIFF(d,publ_date,'" + shortDate + "')=0 ";
+            if (isWidget)
             {
-                arg = " AND DATEDIFF(d,publ_date,'" + this.shortDateToday + "')=0 ";
+                arg = " AND DATEDIFF(d,publ_date,'" + shortDateToday + "')=0 ";
             }
-            if (this.HasCodes)
+            if (HasCodes)
             {
                 int num = 1;
-                string[] array = this.codeArr;
+                string[] array = codeArr;
                 for (int i = 0; i < array.Length; i++)
                 {
                     string text3 = array[i];
@@ -148,9 +212,9 @@ namespace Newspapers
         {
             int num = 0;
             string text = this.CatCodeList;
-            if (this.codesWidget != "0")
+            if (codesWidget != "0")
             {
-                text = this.codesWidget;
+                text = codesWidget;
             }
             if (!String.IsNullOrEmpty(text))
             {
@@ -171,8 +235,8 @@ namespace Newspapers
                             {
                                 if (sqlDataReader["catcode"] != null)
                                 {
-                                    this.HasCodes = true;
-                                    this.codeArr[num] = text2;
+                                    HasCodes = true;
+                                    codeArr[num] = text2;
                                     num++;
                                 }
                             }
@@ -192,33 +256,33 @@ namespace Newspapers
         }
 
         // used as constructor..
-        protected void On_Init(DateTime dt, string codesWidget = null, int tp = 1, int pct = 0, int pbid = 0)
+        protected void On_Init(string dtStr, string tp = "1", string pct = "0", string pbid = "0")
         {
-            //Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
-            //Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
-            this.theDate = dt;
-            this.shortDate = this.theDate.ToString("d/M/yyyy");
-            this.shortDateToday = DateTime.Now.ToString("d/M/yyyy");
-            this.codesWidget = codesWidget;
-            this.filterPageType = tp;
-            this.HandleCodes();
+            theDate = (dtStr == null) ? DateTime.Now : Convert.ToDateTime(dtStr, CultureInfo.CurrentUICulture); 
+            shortDate = theDate.ToString("d/M/yyyy");
+            shortDateToday = DateTime.Now.ToString("d/M/yyyy");
+            //codesWidget = codesWidget;
+            filterPageType = (tp == null) ? 1 : Int32.Parse(tp); 
+            HandleCodes();
             if (!this.TodayHasPapers())
             {
-                this.theDate = dt;
-                this.theDate = this.theDate.AddDays(-1.0);
-                this.shortDate = this.theDate.ToString("d/M/yyyy");
-                this.shortDateToday = DateTime.Now.AddDays(-1.0).ToString("d/M/yyyy");
+                theDate = (dtStr == null) ? DateTime.Now : Convert.ToDateTime(dtStr, CultureInfo.CurrentUICulture);
+                theDate = theDate.AddDays(-1.0);
+                shortDate = theDate.ToString("d/M/yyyy");
+                shortDateToday = DateTime.Now.AddDays(-1.0).ToString("d/M/yyyy");
             }
-            this.PapersCategory = pct;
-            this.PublicationID = pbid;
+            PapersCategory = (pct == null) ? 0 : Int32.Parse(pct); 
+            PublicationID = (pbid == null) ? 0 : Int32.Parse(pbid);  
             
         }
+
+
 
         protected void LoadXslParameters(XsltArgumentList Args)
         {
 
             string parameter = string.Empty;
-            if (this.PublicationID != 0)
+            if (PublicationID != 0)
             {
                 parameter = this.GetPublicationDetails();
             }
@@ -227,9 +291,9 @@ namespace Newspapers
                 parameter = "0";
             }
             string parameter2 = this.CatCodeList;
-            if (this.codesWidget != "0")
+            if (codesWidget != "0")
             {
-                parameter2 = this.codesWidget;
+                parameter2 = codesWidget;
             }
         }
          //   Args.AddParam("PublicationString", string.Empty, parameter);
@@ -237,7 +301,7 @@ namespace Newspapers
          //   Args.AddParam("PapersCategory", string.Empty, this.PapersCategory);
         
 
-        protected string GetContentXml()
+        protected string GetParamsSQL()
         {
             
             //command :
@@ -246,7 +310,7 @@ namespace Newspapers
             string str = string.Empty;
             string text2 = string.Empty;
             string arg2 = string.Empty;
-            if (this.filterPageType == 1)
+            if (filterPageType == 1)
             {
                 arg2 = " AND Pub_back = 0 ";
             }
@@ -254,19 +318,19 @@ namespace Newspapers
             {
                 arg2 = " AND Pub_back = 1 ";
             }
-            if (this.PapersCategory != 0 && !this.isWidget)
+            if (PapersCategory != 0 && !isWidget)
             {
-                text = " AND Category= " + this.PapersCategory.ToString() + " ";
+                text = " AND Category= " + PapersCategory.ToString() + " ";
             }
-            arg = " AND DATEDIFF(d,publ_date,'" + this.shortDate + "')=0 ";
-            if (this.isWidget)
+            arg = " AND DATEDIFF(d,publ_date,'" + shortDate + "')=0 ";
+            if (isWidget)
             {
-                arg = " AND DATEDIFF(d,publ_date,'" + this.shortDateToday + "')=0 ";
+                arg = " AND DATEDIFF(d,publ_date,'" + shortDateToday + "')=0 ";
             }
-            if (this.HasCodes)
+            if (HasCodes)
             {
                 int num = 1;
-                string[] array = this.codeArr;
+                string[] array = codeArr;
                 for (int i = 0; i < array.Length; i++)
                 {
                     string text3 = array[i];
@@ -289,11 +353,9 @@ namespace Newspapers
                     text += str;
                 }
             }
-            string text4 = "YellowModules.Sql.NewsPapersListXML.sql";
-            text4 = string.Format(text4, arg, text, arg2);
+            
+            return arg + text + arg2;
 
-            // return XML result of NewsPapersListXML.sql
-            return null;
         }
 
 
@@ -301,9 +363,23 @@ namespace Newspapers
         private string GetPublicationDetails()
         {
             string result = string.Empty;
-            
 
-            XmlDocument xmlDocNewsPapersList = produceXMLfromSQL("NewsPapersList", GetCommandTextPub());
+            XmlDocument xmlDocNewsPapersList = produceXMLfromSQL("NewsPapersAllMain", GetParamsSQL());
+            StringWriter writerHTML = new StringWriter();
+
+
+            try
+            {
+                string MyXsltPath = Server.MapPath("~/NBScripts/NewsPapersAllMain.xslt");
+                XslCompiledTransform XSLTransform = new XslCompiledTransform();
+                XSLTransform.Load(MyXsltPath, new XsltSettings(false, true), null);//, settings, null);
+                XSLTransform.Transform(xmlDocNewsPapersList, null, writerHTML);
+            }
+            catch (FileNotFoundException eex) {  }
+
+            NewsPapersListNew.InnerHtml = writerHTML.ToString();
+
+
             // tb_show ?
             //result = string.Concat(new string[]
             //{
@@ -325,25 +401,25 @@ namespace Newspapers
             string text = string.Empty;
             string arg = string.Empty;
             string empty = string.Empty;
-            int arg_1A_0 = this.filterPageType;
-            if (this.PapersCategory != 0)
+            int arg_1A_0 = filterPageType;
+            if (PapersCategory != 0)
             {
-                bool arg_29_0 = this.isWidget;
+                bool arg_29_0 = isWidget;
             }
-            arg = " AND DATEDIFF(d,publ_date,'" + this.shortDate + "')=0 ";
-            if (this.isWidget)
+            arg = " AND DATEDIFF(d,publ_date,'" + shortDate + "')=0 ";
+            if (isWidget)
             {
-                arg = " AND DATEDIFF(d,publ_date,'" + this.shortDateToday + "')=0 ";
+                arg = " AND DATEDIFF(d,publ_date,'" + shortDateToday + "')=0 ";
             }
-            if (this.PublicationID != 0 && !this.isWidget)
+            if (PublicationID != 0 && !isWidget)
             {
-                text = text + " AND pu.rowid= " + this.PublicationID.ToString() + " ";
+                text = text + " AND pu.rowid= " + PublicationID.ToString() + " ";
             }
             return arg + text;
         }
 
 
-        protected virtual SqlDataReader CodeExists(string CatCode)
+        protected SqlDataReader CodeExists(string CatCode)
         {
             string query = "select catcode from cms_DC_NewsPapersCategories (nolock) where catcode=@catcode and langid=1 and status='published'";
             SqlCommand command = new SqlCommand(query, new SqlConnection(getConStringSQL()));

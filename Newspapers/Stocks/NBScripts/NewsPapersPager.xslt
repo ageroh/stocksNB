@@ -184,39 +184,34 @@
       </div>
       <script>
         <![CDATA[
-        jQuery(function ($) {
-        
-        jQuery.datepicker.regional['el'] = {
-            closeText: 'Κλείσιμο',
-            prevText: 'Προηγούμενος',
-            nextText: 'Επόμενος',
-            currentText: 'Τρέχων Μήνας',
-            monthNames: ['Ιανουάριος', 'Φεβρουάριος', 'Μάρτιος', 'Απρίλιος', 'Μάιος', 'Ιούνιος', 'Ιούλιος', 'Αύγουστος', 'Σεπτέμβριος', 'Οκτώβριος', 'Νοέμβριος', 'Δεκέμβριος'],
-            monthNamesShort: ['Ιαν', 'Φεβ', 'Μαρ', 'Απρ', 'Μαι', 'Ιουν', 'Ιουλ', 'Αυγ', 'Σεπ', 'Οκτ', 'Νοε', 'Δεκ'],
-            dayNames: ['Κυριακή', 'Δευτέρα', 'Τρίτη', 'Τετάρτη', 'Πέμπτη', 'Παρασκευή', 'Σάββατο'],
-            dayNamesShort: ['Κυρ', 'Δευ', 'Τρι', 'Τετ', 'Πεμ', 'Παρ', 'Σαβ'],
-            dayNamesMin: ['Κυ', 'Δε', 'Τρ', 'Τε', 'Πε', 'Πα', 'Σα'],
-            weekHeader: 'Εβδ',
-            dateFormat: 'mm/dd/yy',
-            firstDay: 1,
-            isRTL: false,
-            showMonthAfterYear: false,
-            yearSuffix: ''
-        };
-        jQuery.datepicker.setDefaults($.datepicker.regional['el']);
-        });
-        var pickerOpts = {
-            showOn: "button",
-            buttonImage: '../media/papers-calendar.png',
-            buttonImageOnly: true
-            ,beforeShowDay: isAvailable
-            ,maxDate: 0
-            ,minDate: new Date(2010, 8, 5)
-        };
-        jQuery(function () {
 
-            jQuery("#calendarDateSelected").datepicker(pickerOpts);
-            $("#calendarDateSelected").extend($.datepicker,{_checkOffset:function(inst,offset,isFixed){return offset}});
+          jQuery(function () {
+
+            jQuery("#calendarDateSelected").datepicker({
+                  showOn: "button",
+                  buttonImage: '../media/papers-calendar.png',
+                  buttonImageOnly: true
+                  ,beforeShowDay: isAvailable
+                  ,maxDate: 0
+                  ,minDate: new Date(2010, 8, 5)
+                  , closeText: 'Κλείσιμο',
+                  prevText: 'Προηγούμενος',
+                  nextText: 'Επόμενος',
+                  currentText: 'Τρέχων Μήνας',
+                  monthNames: ['Ιανουάριος', 'Φεβρουάριος', 'Μάρτιος', 'Απρίλιος', 'Μάιος', 'Ιούνιος', 'Ιούλιος', 'Αύγουστος', 'Σεπτέμβριος', 'Οκτώβριος', 'Νοέμβριος', 'Δεκέμβριος'],
+                  monthNamesShort: ['Ιαν', 'Φεβ', 'Μαρ', 'Απρ', 'Μαι', 'Ιουν', 'Ιουλ', 'Αυγ', 'Σεπ', 'Οκτ', 'Νοε', 'Δεκ'],
+                  dayNames: ['Κυριακή', 'Δευτέρα', 'Τρίτη', 'Τετάρτη', 'Πέμπτη', 'Παρασκευή', 'Σάββατο'],
+                  dayNamesShort: ['Κυρ', 'Δευ', 'Τρι', 'Τετ', 'Πεμ', 'Παρ', 'Σαβ'],
+                  dayNamesMin: ['Κυ', 'Δε', 'Τρ', 'Τε', 'Πε', 'Πα', 'Σα'],
+                  weekHeader: 'Εβδ',
+                  dateFormat: 'mm/dd/yy',
+                  firstDay: 1,
+                  isRTL: false,
+                  showMonthAfterYear: false,
+                  yearSuffix: ''
+          };
+
+          $("#calendarDateSelected").extend($.datepicker,{_checkOffset:function(inst,offset,isFixed){return offset}});
             
 
         });
