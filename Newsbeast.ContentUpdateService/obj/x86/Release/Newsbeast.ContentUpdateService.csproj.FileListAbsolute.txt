@@ -10,3 +10,4 @@ C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newsbeast.ContentU
 C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newsbeast.ContentUpdateService\obj\x86\Release\Newsbeast.ContentUpdateService.pdb
 C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newsbeast.ContentUpdateService\bin\Release\Newsbeast.ContentUpdateService.exe
 C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newsbeast.ContentUpdateService\bin\Release\Newsbeast.ContentUpdateService.pdb
+C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newsbeast.ContentUpdateService\obj\x86\Release\Newsbeast.ContentUpdateService.csprojResolveAssemblyReference.cache

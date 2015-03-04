@@ -70,8 +70,8 @@ namespace Newspapers
 
                 On_Init(this.Request.QueryString["dt"]
                         , this.Request.QueryString["tp"]
+                        , this.Request.QueryString["pct"]
                         , this.Request.QueryString["pbid"]
-                        , this.Request.QueryString["isClicked"]
                 );
 
                 // produce XML from SQL queries.
@@ -108,8 +108,24 @@ namespace Newspapers
                     {
                         string MyXsltPath = Server.MapPath("~/NBScripts/NewsPaperCategories.xslt");
                         XslCompiledTransform XSLTransform = new XslCompiledTransform();
+
+                        
+                        XsltArgumentList argsList = new XsltArgumentList();
+                        if(Request.QueryString["pct"]!=null)
+                            argsList.AddParam("pct", "", Request.QueryString["pct"]);
+
+                        if (Request.QueryString["tp"] != null)
+                            argsList.AddParam("tp", "", Request.QueryString["tp"]);
+
+                        if (Request.QueryString["dt"] != null)
+                            argsList.AddParam("dt", "", Request.QueryString["dt"]);
+
+                        if (Request.QueryString["pbid"] != null)
+                            argsList.AddParam("pbid", "", Request.QueryString["pbid"]);
+
+
                         XSLTransform.Load(MyXsltPath, new XsltSettings(false, true), null);//, settings, null);
-                        XSLTransform.Transform(xmlDocNewsPapersPager, null, writer2);
+                        XSLTransform.Transform(xmlDocNewsPaperCategories, argsList, writer2);
                     }
                     catch (FileNotFoundException eex) { return; }
 
@@ -189,10 +205,13 @@ namespace Newspapers
             try
             {
                 XmlDocument xmlDocCheckTodayPapers = produceXMLfromSQL("NewsPapersList", this.GetCommandTextTestArgs());
-                XmlNodeList Titles = xmlDocCheckTodayPapers.SelectNodes("/np[@Title]");
-                foreach (XmlNode nextNode in Titles)
+                if (xmlDocCheckTodayPapers != null)
                 {
-                    num++;
+                    XmlNodeList Titles = xmlDocCheckTodayPapers.SelectNodes("/All/Day/Title");
+                    foreach (XmlNode nextNode in Titles)
+                    {
+                        num++;
+                    }
                 }
             }
             catch (Exception ex)
@@ -201,6 +220,7 @@ namespace Newspapers
                 currentClassLogger.Debug("query errror.NewsPapers", ex.ToString());
             }
             
+            // if Today has more than One newspaper then show them ?
             if (num >= 1)
             {
                 return true;
@@ -258,21 +278,21 @@ namespace Newspapers
         // used as constructor..
         protected void On_Init(string dtStr, string tp = "1", string pct = "0", string pbid = "0")
         {
-            theDate = (dtStr == null) ? DateTime.Now : Convert.ToDateTime(dtStr, CultureInfo.CurrentUICulture); 
+            theDate = (String.IsNullOrEmpty(dtStr)) ? DateTime.Now : Convert.ToDateTime(dtStr, CultureInfo.CurrentUICulture); 
             shortDate = theDate.ToString("d/M/yyyy");
             shortDateToday = DateTime.Now.ToString("d/M/yyyy");
             //codesWidget = codesWidget;
-            filterPageType = (tp == null) ? 1 : Int32.Parse(tp); 
-            HandleCodes();
-            if (!this.TodayHasPapers())
+            filterPageType = (String.IsNullOrEmpty(tp)) ? 1 : Int32.Parse(tp); 
+            //HandleCodes();
+            if (! TodayHasPapers())
             {
                 theDate = (dtStr == null) ? DateTime.Now : Convert.ToDateTime(dtStr, CultureInfo.CurrentUICulture);
-                theDate = theDate.AddDays(-1.0);
+                theDate = theDate.AddDays(-1.0);    // Bring one day before ! no!
                 shortDate = theDate.ToString("d/M/yyyy");
                 shortDateToday = DateTime.Now.AddDays(-1.0).ToString("d/M/yyyy");
             }
-            PapersCategory = (pct == null) ? 0 : Int32.Parse(pct); 
-            PublicationID = (pbid == null) ? 0 : Int32.Parse(pbid);  
+            PapersCategory = (String.IsNullOrEmpty(pct)) ? 0 : Int32.Parse(pct); 
+            PublicationID = (String.IsNullOrEmpty(pbid)) ? 0 : Int32.Parse(pbid);  
             
         }
 
@@ -322,7 +342,11 @@ namespace Newspapers
             {
                 text = " AND Category= " + PapersCategory.ToString() + " ";
             }
-            arg = " AND DATEDIFF(d,publ_date,'" + shortDate + "')=0 ";
+            
+            if( Convert.ToDateTime(shortDate) > DateTime.Now)
+                arg = " AND DATEDIFF(d,publ_date,'" + DateTime.Now.ToShortDateString() + "')=0 ";
+            else
+                arg = " AND DATEDIFF(d,publ_date,'" + shortDate + "')=0 ";
             if (isWidget)
             {
                 arg = " AND DATEDIFF(d,publ_date,'" + shortDateToday + "')=0 ";
@@ -426,6 +450,8 @@ namespace Newspapers
             command.Parameters.AddWithValue("@catcode", CatCode);
             return command.ExecuteReader(CommandBehavior.CloseConnection);
         }
+
+
     }
 
 

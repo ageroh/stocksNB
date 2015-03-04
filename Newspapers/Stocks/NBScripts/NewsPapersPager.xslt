@@ -209,7 +209,7 @@
                   isRTL: false,
                   showMonthAfterYear: false,
                   yearSuffix: ''
-          };
+          });
 
           $("#calendarDateSelected").extend($.datepicker,{_checkOffset:function(inst,offset,isFixed){return offset}});
             
@@ -232,7 +232,7 @@
 
     function redirectToNewDate(newDate)
     {
-        document.location="/newspapers/?dt="+newDate;
+        document.location="/NewsPapersMain.aspx?dt="+newDate;
     }
 
     ]]>

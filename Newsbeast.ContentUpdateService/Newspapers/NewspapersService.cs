@@ -10,6 +10,9 @@ using System.Xml.Linq;
 using System.Xml.XPath;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.Drawing.Drawing2D;
+
 
 namespace Newsbeast.ContentUpdateService.Newspapers
 {
@@ -424,7 +427,20 @@ namespace Newsbeast.ContentUpdateService.Newspapers
             // resize to custom 2 dimensions
             if ( File.Exists(filenameClean + "_277x343.jpg") )
                 File.Delete(filenameClean + "_277x343.jpg");
-            FixedSize(image1, 277, 343).Save(filenameClean + "_277x343.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            Image imgnew = FixedSize(image1, 277, 343);
+            if( imgnew == null)
+                base.Log.Error("Could not Save image in 277x343 : " + filenameClean);
+            else
+                imgnew.Save(filenameClean + "_277x343.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+
+
+            // crop and resize image for main page
+            if ( File.Exists(filenameClean + "_213x298.jpg") )
+                File.Delete(filenameClean + "_213x298.jpg");
+            if (!SaveCroppedImage(image1, 213, 298, filenameClean + "_213x298.jpg"))
+            {
+                base.Log.Error("Could not Save image in 213x298 : " + filenameClean);
+            }
 
         }
         private string MakeRelativeWebPath(string FileName)
@@ -448,6 +464,86 @@ namespace Newsbeast.ContentUpdateService.Newspapers
             return string.Format(this.Settings.UrlFormat, this.Settings.APIKey, dateTime);
         }
 
+
+        public bool SaveCroppedImage(Image image, int maxWidth, int maxHeight, string filePath)
+        {
+            ImageCodecInfo jpgInfo = ImageCodecInfo.GetImageEncoders()
+                                     .Where(codecInfo =>
+                                     codecInfo.MimeType == "image/jpeg").First();
+            Image finalImage = image;
+            System.Drawing.Bitmap bitmap = null;
+            try
+            {
+                int left = 0;
+                int top = 0;
+                int srcWidth = maxWidth;
+                int srcHeight = maxHeight;
+                bitmap = new System.Drawing.Bitmap(maxWidth, maxHeight);
+                double croppedHeightToWidth = (double)maxHeight / maxWidth;
+                double croppedWidthToHeight = (double)maxWidth / maxHeight;
+
+                if (image.Width > image.Height)
+                {
+                    srcWidth = (int)(Math.Round(image.Height * croppedWidthToHeight));
+                    if (srcWidth < image.Width)
+                    {
+                        srcHeight = image.Height;
+                        left = (image.Width - srcWidth) / 2;
+                    }
+                    else
+                    {
+                        srcHeight = (int)Math.Round(image.Height * ((double)image.Width / srcWidth));
+                        srcWidth = image.Width;
+                        top = (image.Height - srcHeight) / 2;
+                    }
+                }
+                else
+                {
+                    srcHeight = (int)(Math.Round(image.Width * croppedHeightToWidth));
+                    if (srcHeight < image.Height)
+                    {
+                        srcWidth = image.Width;
+                        top = (image.Height - srcHeight) / 2;
+                    }
+                    else
+                    {
+                        srcWidth = (int)Math.Round(image.Width * ((double)image.Height / srcHeight));
+                        srcHeight = image.Height;
+                        left = (image.Width - srcWidth) / 2;
+                    }
+                }
+                using (Graphics g = Graphics.FromImage(bitmap))
+                {
+                    g.SmoothingMode = SmoothingMode.HighQuality;
+                    g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                    g.CompositingQuality = CompositingQuality.HighQuality;
+                    g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                    g.DrawImage(image, new Rectangle(0, 0, bitmap.Width, bitmap.Height),
+                    new Rectangle(left, top, srcWidth, srcHeight), GraphicsUnit.Pixel);
+                }
+                finalImage = bitmap;
+            }
+            catch { }
+            try
+            {
+                using (EncoderParameters encParams = new EncoderParameters(1))
+                {
+                    encParams.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, (long)100);
+                    //quality should be in the range 
+                    //[0..100] .. 100 for max, 0 for min (0 best compression)
+                    finalImage.Save(filePath, jpgInfo, encParams);
+                    return true;
+                }
+            }
+            catch { }
+            if (bitmap != null)
+            {
+                bitmap.Dispose();
+            }
+            return false;
+        } 
+ 
+
         static Image FixedSize(Image imgPhoto, int Width, int Height)
         {
             int sourceWidth = imgPhoto.Width;
@@ -461,36 +557,43 @@ namespace Newsbeast.ContentUpdateService.Newspapers
             float nPercentW = 0;
             float nPercentH = 0;
 
-            nPercentW = ((float)Width / (float)sourceWidth);
-            nPercentH = ((float)Height / (float)sourceHeight);
-            if (nPercentH < nPercentW)
+            try
             {
-                nPercent = nPercentH;
-                destX = System.Convert.ToInt16((Width - (sourceWidth * nPercent)) / 2);
+                nPercentW = ((float)Width / (float)sourceWidth);
+                nPercentH = ((float)Height / (float)sourceHeight);
+                if (nPercentH < nPercentW)
+                {
+                    nPercent = nPercentH;
+                    destX = System.Convert.ToInt16((Width - (sourceWidth * nPercent)) / 2);
+                }
+                else
+                {
+                    nPercent = nPercentW;
+                    destY = System.Convert.ToInt16((Height - (sourceHeight * nPercent)) / 2);
+                }
+
+                int destWidth = (int)(sourceWidth * nPercent);
+                int destHeight = (int)(sourceHeight * nPercent);
+
+                Bitmap bmPhoto = new Bitmap(Width, Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+                bmPhoto.SetResolution(imgPhoto.HorizontalResolution, imgPhoto.VerticalResolution);
+
+                Graphics grPhoto = Graphics.FromImage(bmPhoto);
+                grPhoto.Clear(Color.White);
+                grPhoto.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+
+                grPhoto.DrawImage(imgPhoto,
+                    new Rectangle(destX, destY, destWidth, destHeight),
+                    new Rectangle(sourceX, sourceY, sourceWidth, sourceHeight),
+                    GraphicsUnit.Pixel);
+
+                grPhoto.Dispose();
+                return bmPhoto;
             }
-            else
-            {
-                nPercent = nPercentW;
-                destY = System.Convert.ToInt16((Height - (sourceHeight * nPercent)) / 2);
+            catch (Exception ex)
+            {   
+                return null;
             }
-
-            int destWidth = (int)(sourceWidth * nPercent);
-            int destHeight = (int)(sourceHeight * nPercent);
-
-            Bitmap bmPhoto = new Bitmap(Width, Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-            bmPhoto.SetResolution(imgPhoto.HorizontalResolution, imgPhoto.VerticalResolution);
-
-            Graphics grPhoto = Graphics.FromImage(bmPhoto);
-            grPhoto.Clear(Color.White);
-            grPhoto.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-
-            grPhoto.DrawImage(imgPhoto,
-                new Rectangle(destX, destY, destWidth, destHeight),
-                new Rectangle(sourceX, sourceY, sourceWidth, sourceHeight),
-                GraphicsUnit.Pixel);
-
-            grPhoto.Dispose();
-            return bmPhoto;
         }
     }
 }

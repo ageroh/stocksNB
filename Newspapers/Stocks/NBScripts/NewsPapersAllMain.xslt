@@ -81,7 +81,7 @@
               <div class="paper-image">
                 <a title="{Title} np{pbid}" href="http://dev.newsbeast.gr/{publ_photo}" rel="magnify-title" class="thickbox" onclick="var scrollTop = $(window).scrollTop();NewsPaperOffset=scrollTop;">
                   <!-- original size : 213, 298 -->  
-                  <img title="{Title}" alt="{Title}" src="http://dev.newsbeast.gr/{publ_photo_277x343}"/>
+                  <img title="{Title}" alt="{Title}" src="http://dev.newsbeast.gr/{publ_photo_213x298}"/>
                 </a>
               </div>
             </xsl:if>
@@ -117,7 +117,7 @@
               <div class="paper-image">
                 <a title="{Title} np{pbid}" href="http://dev.newsbeast.gr/{publ_photo}" rel="magnify-title" class="thickbox" onclick="var scrollTop = $(window).scrollTop();NewsPaperOffset=scrollTop;">
                   <!-- original size : 213, 298 -->
-                  <img title="{Title}" alt="{Title}" src="http://dev.newsbeast.gr/{publ_photo_277x343}"/>
+                  <img title="{Title}" alt="{Title}" src="http://dev.newsbeast.gr/{publ_photo_213x298}"/>
                 </a>
               </div>
             </xsl:if>
@@ -222,7 +222,7 @@
             <div class="paper-image">
               <a href="http://dev.newsbeast.gr/{publ_photo}" class="thickbox" onclick="var scrollTop = $(window).scrollTop();NewsPaperOffset=scrollTop;" rel="gallery-plants" title="{Title} np{pbid}">
                 <!-- original size : 213, 298 -->
-                <img title="{Title}" alt="{Title}" src="http://dev.newsbeast.gr/{publ_photo_277x343}"/>
+                <img title="{Title}" alt="{Title}" src="http://dev.newsbeast.gr/{publ_photo_213x298}"/>
               </a>
               <xsl:if test="string-length(fr_image) &gt; 0">
                 <span style="position: absolute; right: -6px; bottom: -6px;">

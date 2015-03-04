@@ -74,6 +74,7 @@
     <Content Include="js\jquery.cycle.all.min.js" />
     <Content Include="js\jquery.innerfade.js" />
     <Content Include="js\jquery.lightbox-0.5.min.js" />
+    <Content Include="NBScripts\NewsPapersList.sql" />
     <Content Include="NBScripts\NewsPapersAllMain.xslt" />
     <Content Include="NBScripts\NewsPapersWidget.sql" />
     <Content Include="NBScripts\NewsPapersWidget.xslt">

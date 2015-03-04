@@ -5,7 +5,7 @@ paperUrl,
 Category,
 
 publ_photo,
-substring(publ_photo, 0, charindex('.jpg',publ_photo))+ '_277x343.jpg' as publ_photo_277x343,
+/*substring(publ_photo, 0, charindex('.jpg',publ_photo))+ '_277x343.jpg' as publ_photo_277x343,*/
 substring(publ_photo, 0, charindex('.jpg',publ_photo))+ '_213x298.jpg' as publ_photo_213x298,
 
 publ_date,

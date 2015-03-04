@@ -1,5 +1,3 @@
---$ADD dep DcNewsPapersCategories,DcNewsPapersCategories
-
 select 
     rowid as catID,
     Catname As Catname

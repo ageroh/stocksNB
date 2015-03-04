@@ -34,13 +34,13 @@
     <script type="text/javascript" src="http://wd-edge.sharethis.com/button/getAllAppDefault.esi?cb=stLight.allDefault&amp;app=all&amp;publisher=1892fc32-e6ea-48da-bb8d-80eef48ef0a7&amp;domain=newsbeast.gr"></script>
     <script type="text/javascript" src="http://wd-edge.sharethis.com/button/checkOAuth.esi"></script>
     <link rel="stylesheet" type="text/css" href="http://w.sharethis.com/button/css/buttons.1be8af3324f0d6a3f57225413b0da78b.css"/>
-    <style>
+<%--    <style>
       .stLarge{
           background: url("~/media/sprites.png") no-repeat scroll -239px 5px transparent !important;
          width:30px !important;
          height:26px !important;
       }
-    </style>
+    </style>--%>
 
     
 </head>
@@ -56,7 +56,7 @@
 		        <div id="col-full">
 			        <div class="newspapers-page">
                         
-                        <div id="LoadHTMLPager" runat="server" ></div>           <%-- SQL/XSLT: NewsPapersPager --%>
+                        <div id="LoadHTMLPager" style="padding-top: 10px;" runat="server" ></div>           <%-- SQL/XSLT: NewsPapersPager --%>
                         <div id="LoadHTMLCategories" runat="server"></div>       <%-- SQL/XSLT: NewsPaperCategories --%>
                         
                         <div id="NewsPapersListNew" runat="server"></div>        <!-- All newspapers here -->
