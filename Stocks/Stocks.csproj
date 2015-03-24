@@ -58,14 +58,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\stocks.css" />
+    <Content Include="css\style.css" />
     <Content Include="GetStocksForWidget.aspx" />
     <Content Include="js\Flash.js" />
     <Content Include="js\jquery-1.8.3.min.js" />
     <Content Include="js\stocks.js" />
+    <Content Include="js\xa.js" />
     <Content Include="media\Close.svg" />
     <Content Include="media\metoxes - real time.swf" />
     <Content Include="media\metoxes.swf" />
     <Content Include="media\newspapers-widget.jpg" />
+    <Content Include="media\stock.png" />
     <Content Include="media\stocks\metoxesBottom.jpg" />
     <Content Include="media\stocks\metoxesTop.jpg" />
     <Content Include="media\stocks\metoxes_V2.jpg" />

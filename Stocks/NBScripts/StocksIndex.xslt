@@ -54,10 +54,13 @@
   <xsl:param name="LanguageID"/>
 
   <xsl:template match="/">
-    <div class="stock-ticker">
-      <div class="left">
-        <p>
-          <xsl:text>Γενικός Δείκτης ΧΑΑ: </xsl:text>
+
+    <div class="headCnt fontRob fontB">
+      <img src="media/stock.png" alt="stocks"/>
+      <div class="textCnt">
+        <h2>
+          <span class="colLB">ΓΕΝΙΚΟΣ ΔΕΙΚΤΗΣ ΧΑΑ:</span>
+          <xsl:text> </xsl:text>
           <b>
             <xsl:attribute name="class">
               <xsl:choose>
@@ -74,40 +77,52 @@
             </xsl:attribute>
             <xsl:value-of select="Stocks/MainIndex/Value"/>
           </b>
-          <xsl:text> </xsl:text>
           <span>
+            <xsl:attribute name="class">
+              <xsl:choose>
+                <xsl:when test="Stocks/MainIndex/PChange = 0">
+                  <xsl:text>box zero</xsl:text>
+                </xsl:when>
+                <xsl:when test="Stocks/MainIndex/PChange > 0">
+                  <xsl:text>box green</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:text>box red</xsl:text>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:attribute>
             <xsl:value-of select="Stocks/MainIndex/PChange" />
             <xsl:text>%</xsl:text>
           </span>
-          <xsl:text> ΤΖΙΡΟΣ: </xsl:text>
-          <span>
-            <xsl:value-of select="Stocks/MainIndex/Volume" />
-            <xsl:text> εκ.</xsl:text>
-          </span>
-        </p>
-      </div>
-      <div class="right">
-        <p>
-          <b>
-            <xsl:text>Τελ. Ενημέρωση:</xsl:text>
-          </b>
+        </h2>
+        <h2>
+          <span class="colLB">ΤΖΙΡΟΣ: </span>
+          <xsl:value-of select="Stocks/MainIndex/Volume" />
+          <xsl:text> εκ.</xsl:text>
+        </h2>
+        <h2>
+          <span class="colLB">Τελ. ενημ.: </span>
           <xsl:text> </xsl:text>
           <xsl:value-of select="msxsl:format-date(/Stocks/@LastUpdate,'dd/MM/yyyy')" />
-          <xsl:text> </xsl:text>
-          <b>
-            <xsl:value-of select="msxsl:format-time(/Stocks/@LastUpdate,'HH:mm')" />
-          </b>
-        </p>
+          <xsl:text>, </xsl:text>
+          <xsl:value-of select="msxsl:format-time(/Stocks/@LastUpdate,'HH:mm')" />
+        </h2>
       </div>
+      <div class="fClear"></div>
     </div>
-    <div class="stock-table-main">
+
+
+
+    <div class="stocksCnt">
       <xsl:apply-templates select="/Stocks/Letters/Letter" />
     </div>
+    
     <script type="text/javascript">
       <xsl:text>var stocks = {</xsl:text>
       <xsl:apply-templates select="/Stocks/Stock" mode="JSON" />
       <xsl:text>};</xsl:text>
     </script>
+    
   </xsl:template>
 
   <xsl:template match="Stock" mode="JSON">
@@ -155,32 +170,34 @@
     <xsl:text>"}</xsl:text>
   </xsl:template>
 
+  
   <xsl:template match="Letter">
     <xsl:variable name="Letter" select="." />
     <xsl:variable name="Stocks" select="/Stocks/Stock[@Letter = $Letter]" />
     <xsl:variable name="RowCount" select="ceiling(count($Stocks) div  9)" />
-    <table cellspacing="0" cellpadding="0" border="0">
-      <tbody>
-        <xsl:call-template name="Row">
-          <xsl:with-param name="Stocks" select="$Stocks" />
-          <xsl:with-param name="RowCount" select="$RowCount" />
-          <xsl:with-param name="Letter" select="$Letter" />
-        </xsl:call-template>
-      </tbody>
-    </table>
+    <div class="block">
+      <xsl:call-template name="Row">
+        <xsl:with-param name="Stocks" select="$Stocks" />
+        <xsl:with-param name="RowCount" select="$RowCount" />
+        <xsl:with-param name="Letter" select="$Letter" />
+      </xsl:call-template>
+      <xsl:text disable-output-escaping="yes">&lt;/div&gt;</xsl:text>
+    </div>  
   </xsl:template>
+  
   <xsl:template name="Row">
     <xsl:param name="Stocks" />
     <xsl:param name="Letter" />
     <xsl:param name="RowCount" />
     <xsl:param name="Current" select="1" />
     <xsl:if test="$Current &lt;= $RowCount">
-      <tr>
         <xsl:if test="$Current = 1">
-          <th align="center" rowspan="{$RowCount}" class="letter">
+          <h3>
             <xsl:value-of select="$Letter"/>
-          </th>
+          </h3>
+          <xsl:text disable-output-escaping="yes">&lt;div  class="linksCnt"&gt;</xsl:text>
         </xsl:if>
+      
         <xsl:apply-templates select="msxsl:node-set($Stocks)[position() &gt; ($Current - 1) * 9 and position() &lt;= ($Current * 9)]" mode="HTML" />
         <xsl:call-template name="Row">
           <xsl:with-param name="Stocks" select="$Stocks" />
@@ -188,13 +205,12 @@
           <xsl:with-param name="Letter" select="$Letter" />
           <xsl:with-param name="Current" select="$Current + 1" />
         </xsl:call-template>
-      </tr>
     </xsl:if>
-
   </xsl:template>
+
   <xsl:template match="Stock" mode="HTML">
-    <td align="center">
-      <xsl:value-of select="@Key"/>
-    </td>
+      <a href="#">
+        <xsl:value-of select="@Key"/>
+      </a>
   </xsl:template>
 </xsl:stylesheet>
