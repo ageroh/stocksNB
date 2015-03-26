@@ -1,0 +1,100 @@
+/* RESET ------------------------------------------------------------- */
+/* http://meyerweb.com/eric/tools/css/reset/ */
+/* v1.0 | 20080212 */
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,greek);
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td
+						{ background:transparent; border:0; font-size:100%; margin:0; outline:0; padding:0; vertical-align:baseline; }
+body					{ line-height:1; }
+blockquote, q 			{ quotes:none; }
+blockquote:before, blockquote:after, q:before, q:after { content:''; content:none; }
+
+@font-face {
+    font-family: 'pf_din_text_cond_proregular';
+    src: url('/fonts/nb2-regular-web.eot');/*pfdintextcomppro-regular-web*/
+    src: url('/fonts/nb2-regular-web.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/nb2-regular-web.woff') format('woff'),
+         url('/fonts/nb2-regular-web.ttf') format('truetype'),
+         url('/fonts/nb2-regular-web.svg#pf_din_text_cond_proregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'pf_din_text_cond_probold';
+    src: url('/fonts/nb2-bold-web.eot');
+    src: url('/fonts/nb2-bold-web?#iefix') format('embedded-opentype'),
+         url('/fonts/nb2-bold-web.woff') format('woff'),
+         url('/fonts/nb2-bold-web.ttf') format('truetype'),
+         url('/fonts/nb2-bold-web.svg#pf_din_text_cond_probold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* remember to define focus styles! */
+:focus 					{ outline:0; }
+
+/* remember to highlight inserts somehow! */
+ins 					{ text-decoration:none; }
+del 					{ text-decoration:line-through; }
+
+/* tables still need 'cellspacing="0"' in the markup */
+table 					{ border-collapse:separate; border-spacing:0; }
+
+/* ---------- Defaults ---------- */
+a, a:link, a:visited 	{ color:#444343; text-decoration:none; }
+a:hover, a:focus, a:active 	{ color:#444343; outline:none; text-decoration:underline; }
+a img 					{ border:none; line-height:0.1%; }
+a span					{ cursor:pointer; }
+address					{ font-style:italic; margin:0 0 1.5em 0; }
+blockquote				{ font-style:italic; margin:1em; }
+body					{ background-color:#efefef; color:#000; font-family:Arial, Helvetica, sans-serif; font-size:75%; line-height:120%; background:url(../../media/body.png) repeat-y scroll center top #EFEFEF }
+button, input.button	{ border:none; cursor:pointer; font-family:Arial, Helvetica, sans-serif; margin:0; padding:0; vertical-align:middle; width:auto; }
+caption					{ font-weight:bold; margin-bottom:.2em; padding-left:5px; }
+dd						{ margin-left:15px; }
+dl						{ margin:1em 0; }
+dt						{ font-weight:bold; }
+em						{ font-style:italic; }
+h1, h2, h3,	h4, h5, h6 	{ font-family:Arial, sans-serif; text-align:left; }
+h1						{ font-size:2.2em; margin-bottom:1em; }
+h2						{ font-size:2.0em; margin-bottom:1em; }
+h3						{ font-size:1.8em; margin-bottom:1em; }
+h4						{ font-size:1.6em; margin-bottom:.5em; }
+h5						{ font-size:1.4em; margin-bottom:.5em; }
+h6						{ font-size:1.2em; margin-bottom:.5em; }
+/* html 					{ overflow-y:scroll; } */
+img 					{ border:none; }
+input, button, select, option, textarea { background-color:#fff; color:#726f6f; font-family:Arial, Helvetica, sans-serif; font-size:1em; }
+li						{ margin:0 0 .2em 2em; padding:0; }
+ol						{ margin:1em 0; list-style-type:decimal; }
+optgroup				{ font-style:normal; font-weight:bold; }
+p						{ line-height:140%; margin:1em 0; }
+select 					{ padding:3px; }
+strong, b				{ font-weight:bold; }
+sup, sub				{ line-height:0; }
+table					{ margin-bottom:1em; }
+tfoot					{ font-style:italic; }
+thead td, th			{ font-weight:bold; }
+th, td					{ padding:4px 8px; vertical-align:top; }
+ul						{ margin:1em 0; list-style-type:disc; }
+
+ol li 					{ list-style-type: decimal; }
+ul li 					{ list-style-type: disc; }
+ul ul li 				{ list-style-type: circle; }
+ul ul ul li 			{ list-style-type: square; }
+ol ol li 				{ list-style-type: lower-alpha; }
+ol ol ol li 			{ list-style-type: lower-roman; }
+
+.clearfix:after 		{ clear:both; content:' '; display:block; font-size:0; height:0; visibility:hidden; }
+
+.roboto{font-family: 'Roboto Condensed', sans-serif;}
+
+.bottomWrapper.sticky {position: fixed;top: 0;z-index: 5001;background: #FFF;}
+
+.quo {color:#666}
+.quo:before{content:'\201C';font-size:40px;display:block;margin:0 2px 0;line-height:15px;color:#d5d5d5;font-family:Times, serif;float:left}
+.quo:after{content:'\201E';font-size:40px;margin:0 2px 0;line-height:0px;color:#d5d5d5;font-family:Times, serif}

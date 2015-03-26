@@ -1,0 +1,220 @@
+
+/**
+    Taken from Formating.css, Structure.css
+    */
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,greek);
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td
+						{ background:transparent; border:0; font-size:100%; margin:0; outline:0; padding:0; vertical-align:baseline; }
+body					{ line-height:1; }
+blockquote, q 			{ quotes:none; }
+blockquote:before, blockquote:after, q:before, q:after { content:''; content:none; }
+
+/*
+    @font-face {
+    font-family: 'pf_din_text_cond_proregular';
+    src: url('/fonts/nb2-regular-web.eot');
+    src: url('/fonts/nb2-regular-web.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/nb2-regular-web.woff') format('woff'),
+         url('/fonts/nb2-regular-web.ttf') format('truetype'),
+         url('/fonts/nb2-regular-web.svg#pf_din_text_cond_proregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+*/
+
+@font-face {
+    font-family: 'pf_din_text_cond_probold';
+    src: url('/fonts/nb2-bold-web.eot');
+    src: url('/fonts/nb2-bold-web?#iefix') format('embedded-opentype'),
+         url('/fonts/nb2-bold-web.woff') format('woff'),
+         url('/fonts/nb2-bold-web.ttf') format('truetype'),
+         url('/fonts/nb2-bold-web.svg#pf_din_text_cond_probold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* remember to define focus styles! */
+:focus 					{ outline:0; }
+
+/* remember to highlight inserts somehow! */
+ins 					{ text-decoration:none; }
+del 					{ text-decoration:line-through; }
+
+/* tables still need 'cellspacing="0"' in the markup */
+table 					{ border-collapse:separate; border-spacing:0; }
+
+/* ---------- Defaults ---------- */
+a, a:link, a:visited 	{ color:#444343; text-decoration:none; }
+a:hover, a:focus, a:active 	{ color:#444343; outline:none; text-decoration:underline; }
+a img 					{ border:none; line-height:0.1%; }
+a span					{ cursor:pointer; }
+address					{ font-style:italic; margin:0 0 1.5em 0; }
+blockquote				{ font-style:italic; margin:1em; }
+body					{ background-color:#efefef; color:#000; font-family:Arial, Helvetica, sans-serif; font-size:75%; line-height:120%; /*background:url(../media/body.png) repeat-y scroll center top #EFEFEF }*/
+button, input.button	{ border:none; cursor:pointer; font-family:Arial, Helvetica, sans-serif; margin:0; padding:0; vertical-align:middle; width:auto; }
+caption					{ font-weight:bold; margin-bottom:.2em; padding-left:5px; }
+dd						{ margin-left:15px; }
+dl						{ margin:1em 0; }
+dt						{ font-weight:bold; }
+em						{ font-style:italic; }
+h1, h2, h3,	h4, h5, h6 	{ font-family:Arial, sans-serif; text-align:left; }
+h1						{ font-size:2.2em; margin-bottom:1em; }
+h2						{ font-size:2.0em; margin-bottom:1em; }
+h3						{ font-size:1.8em; margin-bottom:1em; }
+h4						{ font-size:1.6em; margin-bottom:.5em; }
+h5						{ font-size:1.4em; margin-bottom:.5em; }
+h6						{ font-size:1.2em; margin-bottom:.5em; }
+/* html 					{ overflow-y:scroll; } */
+img 					{ border:none; }
+input, button, select, option, textarea { background-color:#fff; color:#726f6f; font-family:Arial, Helvetica, sans-serif; font-size:1em; }
+li						{ margin:0 0 .2em 2em; padding:0; }
+ol						{ margin:1em 0; list-style-type:decimal; }
+optgroup				{ font-style:normal; font-weight:bold; }
+p						{ line-height:140%; margin:1em 0; }
+select 					{ padding:3px; }
+strong, b				{ font-weight:bold; }
+sup, sub				{ line-height:0; }
+table					{ margin-bottom:1em; }
+tfoot					{ font-style:italic; }
+thead td, th			{ font-weight:bold; }
+th, td					{ padding:4px 8px; vertical-align:top; }
+ul						{ margin:1em 0; list-style-type:disc; }
+
+ol li 					{ list-style-type: decimal; }
+ul li 					{ list-style-type: disc; }
+ul ul li 				{ list-style-type: circle; }
+ul ul ul li 			{ list-style-type: square; }
+ol ol li 				{ list-style-type: lower-alpha; }
+ol ol ol li 			{ list-style-type: lower-roman; }
+
+.clearfix:after 		{ clear:both; content:' '; display:block; font-size:0; height:0; visibility:hidden; }
+
+.roboto{font-family: 'Roboto Condensed', sans-serif;}
+
+.bottomWrapper.sticky {position: fixed;top: 0;z-index: 5001;background: #FFF;}
+
+
+
+.offleft				{ text-align:center; }
+#wrapper				{ margin:0 auto; text-align:left; position:relative; width:984px; }
+
+/* Header */
+#header					{ clear:both; width:984px;float:right;background-color:#fff; }
+	.top				{ background-color:#fff; margin:11px 0 0; }
+	.logo				{ clear:both;height:134px;margin:0;text-align:center;width:984px;float:right; }
+	.logo h1		{ text-align:center; }
+	.main-menu			{ background-color:#000; color:#7d7a7a; margin:0 0 6px 0; }
+	.bottom				{ background-color:#FFFFFF;clear:both;padding:6px 6px 0;width:972px; }
+	.catimg				{ clear:both;height:auto;margin:0 0 5px;padding-top:0px;text-align:center; }
+	.catimg	h1			{ margin:0;text-align:center;}
+
+/* Content */
+#content				{ background-color:#fff; color:#7d7a7a; float:right; padding:10px 6px 6px 6px; position:relative; width:972px; }
+	#banner-left		{ left:-175px; padding:0 15px 15px 0; position:absolute; text-align:right; top:0; width:160px; }
+	#col-left			{ float:left; width:662px; }
+	#col-right			{ float:right; width:300px; }
+	#col-full			{ float:left; width:972px;}
+
+/* Footer */
+#footer					{ background-color:#fff; color:#635c5c; clear:both; padding:0 6px 10px 6px; width:972px; }
+	#footer .main-menu	{ margin-bottom:25px; }
+
+/* Popups */
+#login_popup 				{ background-color:#fff; left:165px; position:absolute; top:65px; width:648px; z-index:100; }
+#login_popup .wrap 			{ background-color:#666; border:3px double #d3d2d2; padding:8px; }
+#login_popup .wrap form 	{ background-color:#fff; display:block; overflow:hidden; position:relative; }
+#login_popup .wrap form p 	{ margin:0; }
+
+#sendfriend 				{ background-color:#fff; left:175px; position:absolute; top:65px; width:625px; z-index:100; }
+#sendfriend .wrap 			{ background-color:#666; border:3px double #d3d2d2; padding:8px; }
+#sendfriend .wrap form 		{ background-color:#fff; display:block; overflow:hidden; position:relative; }
+#sendfriend .wrap form p 	{ margin:0; }
+
+
+#papers_popup 				{ background-color:#FFFFFF;left:135px;position:absolute;top:65px;width:680px;z-index:1000;overflow:visible;border:3px solid #686868;}
+#papers_popup .wrap 		{ background-color:#FFFFFF;border:3px solid #D2D1D1;margin:2px;padding:8px; }
+#papers_popup .wrap form 	{ background-color:#fff; display:block; overflow:hidden; position:relative; }
+#papers_popup .wrap form p 	{ margin:0; }
+#papers_popup .close_popup	{ background:url(../Media/button-close.gif) no-repeat scroll right center transparent;top:0;color:#9B9696;display:block;float:right;font-size:0.916em;padding-right:14px;position:relative;right:1px; }
+#papers_popup img			{ border:1px solid #000;margin-top:10px;}
+
+
+#jscalendar 				{ background-color:#FFFFFF;border:3px solid #686868;right:0;overflow:visible;position:absolute;width:215px;z-index:1000;display:none;}
+#jscalendar .wrap 			{ background-color:#FFFFFF;margin:0;padding:0; }
+
+#direct-signup				{ background-color:#fff; left:175px; position:absolute; top:65px; width:605px; z-index:200000; }
+#direct-signup .wrap 			{ border:2px double #000000;overflow:hidden;}
+#direct-signup .wrap form 		{ background-color:#fff; display:block; overflow:hidden; position:relative; }
+#direct-signup .wrap form p 	{ margin:0;color:#726F6F;}
+
+/************** Three Columns********************/
+#col-middle {float:right; width:160px;}
+.col-three .article-teaser {width:492px;margin-bottom:15px}
+
+/***********************************************************************************************************************************************************************************************************************************************************************************/
+/***********************************************************************************************************************************************************************************************************************************************************************************/
+
+
+
+
+/* NEWSPAPERS NEW PAGE*/
+.newspapers-page{position:relative;margin-top:-17px}
+.top-papers{background-color:#9a9a9a;height:30px;margin-top:5px}
+.top-papers.title{background:url(../../media/new-papers-title-arrow.png ) no-repeat left center;color:#fff;float:left;font-size:25px;margin:3px 7px;padding-left:25px;line-height:24px}
+
+.kind-selector{position:absolute;top:0;left:5px;float:none;margin:0}
+.kind-selector select{padding:0;margin:3px}
+
+.papers-date-wrapper{display:inline-block;overflow:hidden;text-align:center;line-height:1}
+
+.papers-dates{background-color:#eee;border-bottom:1px solid #ccc;border-top:1px solid #fff;height:28px;display:block;text-align:center;position:relative;line-height:1}
+.papers-dates ul{display:inline-block;margin:0;overflow:hidden;padding:2px 0}
+.papers-dates ul li{float:left;height:22px;line-height:25px;list-style:none outside;margin:0 2px;padding:2px;color:#666}
+.papers-dates ul li a{font-size:13px;color:#666}
+.papers-dates ul li a:hover{text-decoration:none}
+.papers-dates ul li.active,
+.papers-dates ul li:hover{background-color:#ccc}
+.papers-dates-arrow{background:url(../../media/papers-dates-arrow-bg.png ) no-repeat left top;height:18px;margin:9px 0 0 0;padding:0 4px;width:20px;display:inline-block;vertical-align:top}
+.papers-dates-arrowimg{vertical-align:top}
+.papers-dates .calendar,
+.papers-dates .paper-calendar{position:absolute;top:4px;right:7px}
+.papers-dates .calendarp,
+.papers-dates .paper-calendar p{color:#676767;float:left;font-size:18px;line-height:20px;margin:0 4px}
+.papers-dates .paper-calendar img{top:auto}
+
+.papers-dates .paper-calendar .caldate p{float:left;font-size:12px;height:15px;margin:15px 0 0 5px;text-align:center;width:135px}
+.papers-dates .paper-calendar .caldate p.left_cal{float:left;height:15px;margin:15px 0 15px 15px;text-align:center;width:22px}
+.papers-dates .paper-calendar .caldate p.right_cal{float:right;height:15px;margin:15px 15px 15px 0;text-align:center;width:22px}
+
+.paper-kind-titles{bottom:12px;position:relative}
+.paper-kind-titles ul{overflow:hidden;text-align:center;border-bottom:solid 1px #CCC;}
+.paper-kind-titles ul li {background-color: transparent;display: inline-block;list-style: none outside;margin: 5px;border-right: solid 1px #ccc;}
+/* arrows: .paper-kind-titles ul li em {float: right;background-image: url(../media/sprites.png?v=3);width: 16px;background-position: -18px 0px;height: 15px;margin: 5px 0 0;*float:none}*/
+.paper-kind-titles ul li em {float: right;width: 16px;background-position: -18px 0px;height: 15px;margin: 0px;background-image: url('../media/sprites.png?v=3');display: none;}
+
+.paper-kind-titles ul li:last-child{border-right:none}
+.paper-kind-titles ul li a{color:#999;display:block;float:left;font:17px 'pf_din_text_cond_proregular', Arial, sans-serif;height:28px;margin-right:4px;outline:0 none;padding-right:6px;text-decoration:none;color:#666}
+.paper-kind-titles ul li.active a{color:#000}
+.paper-kind-titles ul li a span{float:left;line-height: 19px;padding: 6px 0 0px 0px;*float:none}
+
+
+.papers-line{overflow:hidden;margin-bottom:30px}
+.paper-holder{float:left;height:342px;margin:0 6px 30px;width:231px}
+.paper-holder.last{float:right}
+.paper-holder .paper-name {color: #999;float: left;font-weight: normal;padding-left:9px;margin: 4px 0 0 -8px;font-size: 23px;line-height: normal;font-family: 'pf_din_text_cond_proregular', Arial, sans-serif;}
+.paper-holder .paper-name a{color: #999;}
+.paper-holder .paper-name .ic {/*
+background-image: url(../media/sprites.png?v=3);*/
+float: none;width: 0;height: 17px;background-position: -211px 0;margin: 5px 0px 0 -17px;display: none;}
+.paper-holder .magni {float: right;margin:5px 0;background-image: url(../media/sprites.png?v=3);height: 20px;width: 20px;background-position: -191px 0;}
+.paper-holder .magni a{display: block;height: 20px;}
+.paper-holder .paper-image{float:left;padding:5px 9px;border:1px solid #e1dfe0;position:relative}
+
+.midpaperad{border-bottom:1px solid #ccc;border-top:1px solid #ccc;margin-bottom:9px;overflow:hidden;padding:4px 0;text-align:center;clear:both}
+
+/***********************************************************************************************************************************************************************************************************************************************************************************/

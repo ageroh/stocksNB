@@ -1,0 +1,55 @@
+﻿.offleft				{ text-align:center; }
+#wrapper				{ margin:0 auto; text-align:left; position:relative; width:984px; }
+
+/* Header */
+#header					{ clear:both; width:984px;float:right;background-color:#fff; }
+	.top				{ background-color:#fff; margin:5px 0 0; }
+	.logo				{ clear:both;height:134px;margin:0;text-align:center;width:984px;float:right; }
+	.logo h1		{ text-align:center; }
+	.main-menu			{ background-color:#000; color:#7d7a7a; margin:0 0 6px 0; }
+	.bottom				{ background-color:#FFFFFF;clear:both;padding:6px 6px 0;width:972px; }
+	.catimg				{ clear:both;height:auto;margin:0 0 5px;padding-top:0px;text-align:center; }
+	.catimg	h1			{ margin:0;text-align:center;}
+
+/* Content */
+#content				{ background-color:#fff; color:#7d7a7a; float:right; padding:10px 6px 6px 6px; position:relative; width:972px; }
+	#banner-left		{ left:-175px; padding:0 15px 15px 0; position:absolute; text-align:right; top:0; width:160px; }
+	#col-left			{ float:left; width:662px; }
+	#col-right			{ float:right; width:300px; }
+	#col-full			{ float:left; width:972px;}
+
+/* Footer */
+#footer					{ background-color:#fff; color:#635c5c; clear:both; padding:0 6px 10px 6px; width:972px;position:relative;}
+	#footer .main-menu	{ margin-bottom:25px; }
+
+/* Popups */
+#login_popup 				{ background-color:#fff; left:165px; position:absolute; top:65px; width:648px; z-index:100; }
+#login_popup .wrap 			{ background-color:#666; border:3px double #d3d2d2; padding:8px; }
+#login_popup .wrap form 	{ background-color:#fff; display:block; overflow:hidden; position:relative; }
+#login_popup .wrap form p 	{ margin:0; }
+
+#sendfriend 				{ background-color:#fff; left:175px; position:absolute; top:65px; width:625px; z-index:100; }
+#sendfriend .wrap 			{ background-color:#666; border:3px double #d3d2d2; padding:8px; }
+#sendfriend .wrap form 		{ background-color:#fff; display:block; overflow:hidden; position:relative; }
+#sendfriend .wrap form p 	{ margin:0; }
+
+
+#papers_popup 				{ background-color:#FFFFFF;left:135px;position:absolute;top:65px;width:680px;z-index:1000;overflow:visible;border:3px solid #686868;}
+#papers_popup .wrap 		{ background-color:#FFFFFF;border:3px solid #D2D1D1;margin:2px;padding:8px; }
+#papers_popup .wrap form 	{ background-color:#fff; display:block; overflow:hidden; position:relative; }
+#papers_popup .wrap form p 	{ margin:0; }
+#papers_popup .close_popup	{ background:url(../Media/button-close.gif) no-repeat scroll right center transparent;top:0;color:#9B9696;display:block;float:right;font-size:0.916em;padding-right:14px;position:relative;right:1px; }
+#papers_popup img			{ border:1px solid #000;margin-top:10px;}
+
+
+#jscalendar 				{ background-color:#FFFFFF;border:3px solid #686868;right:0;overflow:visible;position:absolute;width:215px;z-index:1000;display:none;}
+#jscalendar .wrap 			{ background-color:#FFFFFF;margin:0;padding:0; }
+
+#direct-signup				{ background-color:#fff; left:175px; position:absolute; top:65px; width:605px; z-index:200000; }
+#direct-signup .wrap 			{ border:2px double #000000;overflow:hidden;}
+#direct-signup .wrap form 		{ background-color:#fff; display:block; overflow:hidden; position:relative; }
+#direct-signup .wrap form p 	{ margin:0;color:#726F6F;}
+
+/************** Three Columns********************/
+#col-middle {float:right; width:160px;}
+.col-three .article-teaser {width:492px;margin-bottom:15px}

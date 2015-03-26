@@ -1,0 +1,8 @@
+C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newspapers\Newspapers\bin\Newspapers.dll
+C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newspapers\Newspapers\bin\Newspapers.pdb
+C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newspapers\Newspapers\bin\ImageResizer.dll
+C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newspapers\Newspapers\bin\NLog.dll
+C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newspapers\Newspapers\bin\ImageResizer.xml
+C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newspapers\Newspapers\bin\NLog.xml
+C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newspapers\Newspapers\obj\Release\Newspapers.dll
+C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Newspapers\Newspapers\obj\Release\Newspapers.pdb

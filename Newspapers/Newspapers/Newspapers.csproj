@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{41FE5C62-A881-470B-B679-7B5E259EE51B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Newspapers</RootNamespace>
+    <AssemblyName>Newspapers</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ImageResizer">
+      <HintPath>..\packages\ImageResizer.3.4.3\lib\ImageResizer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.2.1.0\lib\net20\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\formating.css" />
+    <Content Include="css\kiosk.css" />
+    <Content Include="css\last-news_widget.css" />
+    <Content Include="css\modules.css" />
+    <Content Include="css\newspapers_main.css" />
+    <Content Include="css\structure.css" />
+    <Content Include="css\thickbox.css" />
+    <Content Include="css\thickbox_newspapers.css" />
+    <Content Include="Global.asax" />
+    <Content Include="js\jquery.cycle.all.min.js" />
+    <Content Include="js\jquery.innerfade.js" />
+    <Content Include="js\jquery.lightbox-0.5.min.js" />
+    <Content Include="NBScripts\NewsPapersList.sql" />
+    <Content Include="NBScripts\NewsPapersAllMain.xslt" />
+    <Content Include="NBScripts\NewsPapersWidget.sql" />
+    <Content Include="NBScripts\NewsPapersWidget.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="newspapersBuilderWidget.aspx" />
+    <Content Include="NewspapersWidget.aspx" />
+    <Content Include="css\newspapers-datepicker.css" />
+    <Content Include="css\paper-widget-new.css" />
+    <Content Include="js\utilities.js" />
+    <Content Include="js\widget.js" />
+    <Content Include="js\widget_builder.js" />
+    <Content Include="NBScripts\NewsPapersAllMain.sql" />
+    <Content Include="NBScripts\NewsPapersContainer300_V2.sql" />
+    <Content Include="NBScripts\NewsPapersContainer300_V2.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="NewsPapersMain.aspx" />
+    <Content Include="css\newspapers.css" />
+    <Content Include="js\jquery-1.8.3.min.js" />
+    <Content Include="media\Close.svg" />
+    <Content Include="media\metoxes - real time.swf" />
+    <Content Include="media\metoxes.swf" />
+    <Content Include="media\newspapers-widget.jpg" />
+    <Content Include="media\stocks\metoxesBottom.jpg" />
+    <Content Include="media\stocks\metoxesTop.jpg" />
+    <Content Include="media\stocks\metoxes_V2.jpg" />
+    <Content Include="media\stocks\metoxes_V3.jpg" />
+    <Content Include="media\stocks\newsbeast_01.jpg" />
+    <Content Include="media\tp-logo.png" />
+    <Content Include="NBScripts\daysWithNoPublications.sql" />
+    <Content Include="NBScripts\daysWithNoPublications.xslt" />
+    <Content Include="NBScripts\NewsPapersPager.sql" />
+    <Content Include="NBScripts\NewsPapersPager.xslt" />
+    <Content Include="NBScripts\NewsPaperCategories.sql" />
+    <Content Include="NBScripts\NewsPaperCategories.xslt" />
+    <Content Include="paperFeedWidget.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="newspapersBuilderWidget.aspx.cs">
+      <DependentUpon>newspapersBuilderWidget.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewspapersWidget.aspx.cs">
+      <DependentUpon>NewspapersWidget.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewspapersWidget.aspx.designer.cs">
+      <DependentUpon>NewspapersWidget.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewsPapersMain.aspx.cs">
+      <DependentUpon>NewsPapersMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewsPapersMain.aspx.designer.cs">
+      <DependentUpon>NewsPapersMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\pub for Stock.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>25811</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:36991/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
