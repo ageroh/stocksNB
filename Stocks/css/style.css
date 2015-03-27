@@ -45,4 +45,24 @@ h1{color:#6d6e71;font-size:20px;letter-spacing: 5px;margin:20px auto;}
 #infoCnt table tr:nth-child(odd){background-color:#e4e7ef }
 
 
+/* CSS for News.gr */
+.newstmp {display: none;}
 
+.newstmp 
+    .block .linksCnt {margin-left:20px}
+	    .block .linksCnt a {display: inline-block;background-color: #fff;padding:3px 10px;margin:3px;
+	    -webkit-transition: 	all .3s ease-in-out;
+ 	    -moz-transition:        all .3s ease-in-out;
+        -o-transition:        	all .3s ease-in-out;
+        -ms-transition:       	all .3s ease-in-out;	
+        transition:         	all .3s ease-in-out;}
+    
+	    .block .linksCnt a:hover,.block .linksCnt a.selected{background-color: #1a2a4c;color:#fff}
+
+.newstmp .headCnt{border-top:7px solid #EEEBED;border-bottom:7px solid #EEEBED;padding:10px 0;margin:0 0 30px 0 }
+.newstmp #infoCnt {position: absolute;top:0;left:0;z-index:2;border:7px solid #EEEBED; padding:5px;background-color: #fff;max-width: 290px;display: none;}
+.newstmp #infoCnt h2	{background-color:#EEEBED;padding:5px;font-size:30px;margin-bottom:5px}
+.newstmp #infoCnt table{border-collapse: collapse;}
+.newstmp #infoCnt table tr{}
+.newstmp #infoCnt table tr td{padding:5px;margin:5px 0}
+.newstmp #infoCnt table tr:nth-child(odd){background-color:#e4e7ef }

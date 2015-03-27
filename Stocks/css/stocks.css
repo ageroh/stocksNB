@@ -53,7 +53,7 @@ a img 					{ border:none; line-height:0.1%; }
 a span					{ cursor:pointer; }
 address					{ font-style:italic; margin:0 0 1.5em 0; }
 blockquote				{ font-style:italic; margin:1em; }
-body					{ background-color:#efefef; color:#000; font-family:Arial, Helvetica, sans-serif; font-size:75%; line-height:120%; background:url(../../media/body.png) repeat-y scroll center top #EFEFEF }
+body					{ background-color:#efefef; color:#000; font-family:Arial, Helvetica, sans-serif; font-size:75%; line-height:120%; /*background:url(../../media/body.png) repeat-y scroll center top #EFEFEF*/ }
 button, input.button	{ border:none; cursor:pointer; font-family:Arial, Helvetica, sans-serif; margin:0; padding:0; vertical-align:middle; width:auto; }
 caption					{ font-weight:bold; margin-bottom:.2em; padding-left:5px; }
 dd						{ margin-left:15px; }
@@ -184,7 +184,7 @@ ol ol ol li 			{ list-style-type: lower-roman; }
 .stock-table-main th[rowspan]{padding-top:2px}
 
 .stocks-widget{border:1px solid #CCCCCC;margin-bottom:15px}
-.stocks-widget h1{background:url(../../media/tp-2bg.jpg ) no-repeat scroll left center #FDB827;border-bottom:1px solid #CCCCCC;border-top:16px solid #003876;color:#003876;font-weight:normal;height:26px;line-height:30px;margin-bottom:0;padding:3px 5px 7px}
+.stocks-widget h1{/*background:url(../../media/tp-2bg.jpg ) no-repeat scroll left center #FDB827;*/border-bottom:1px solid #CCCCCC;border-top:16px solid #003876;color:#003876;font-weight:normal;height:26px;line-height:30px;margin-bottom:0;padding:3px 5px 7px}
 .stocks-widget table{margin-bottom:0;padding:5px}
 .stocks-widget tr.color{background-color:#eeeeee;color:#999999}
 .stocks-widget tr.colortd{background-color:#eeeeee;padding:2px 8px;color:#999999}
@@ -206,7 +206,7 @@ ol ol ol li 			{ list-style-type: lower-roman; }
 .stocks-widget-for-others{border:1px solid #CCCCCC;position:relative;margin-bottom:15px}
 .stocks-widget-for-others .real-time{color:#6699CC;left:6px;position:absolute;top:0px}
 .stocks-widget-for-others .real-time img{position:relative;top:2px;margin-right:2px}
-.stocks-widget-for-others h1{background:url(../../media/tp-2bg.jpg ) no-repeat scroll right center #FDB827;border-bottom:1px solid #999999;border-top:18px solid #003876;color:#003876;font-weight:normal;height:25px;margin-bottom:0;padding:0px 5px 10px;line-height:30px}
+.stocks-widget-for-others h1{/*background:url(../../media/tp-2bg.jpg ) no-repeat scroll right center #FDB827;*/border-bottom:1px solid #999999;border-top:18px solid #003876;color:#003876;font-weight:normal;height:25px;margin-bottom:0;padding:0px 5px 10px;line-height:30px}
 .stocks-widget-for-others table{margin-bottom:0;padding:5px;text-align:center}
 .stocks-widget-for-others table.head{padding:0}
 .stocks-widget-for-others table.head tr{background-color:#cccccc;color:#003876;text-align:center}

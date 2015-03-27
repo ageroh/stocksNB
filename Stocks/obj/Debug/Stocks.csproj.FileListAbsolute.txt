@@ -2,3 +2,4 @@ C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Stocks\bin\Stocks.
 C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Stocks\bin\Stocks.pdb
 C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Stocks\obj\Debug\Stocks.dll
 C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Stocks\obj\Debug\Stocks.pdb
+C:\Users\Argiris\Documents\Visual Studio 2012\Projects\Stocks\Stocks\obj\Debug\Stocks.csprojResolveAssemblyReference.cache

@@ -39,16 +39,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
@@ -57,6 +49,28 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="js\NewsXa.js" />
+    <Content Include="media\real-on.png" />
+    <Content Include="media\stock-search-arrow-bg.png" />
+    <Content Include="media\stock-search-arrow-down-hover.png" />
+    <Content Include="media\stock-search-arrow-down.png" />
+    <Content Include="media\stock-search-arrow-small-down-hover.png" />
+    <Content Include="media\stock-search-arrow-small-down.png" />
+    <Content Include="media\stock-search-arrow-small-up-hover.png" />
+    <Content Include="media\stock-search-arrow-small-up.png" />
+    <Content Include="media\stock-search-arrow-up-hover.png" />
+    <Content Include="media\stock-search-arrow-up.png" />
+    <Content Include="media\stock-search-input-img.png" />
+    <Content Include="media\stock-search-input.png" />
+    <Content Include="media\stock-search-reload-hover.png" />
+    <Content Include="media\stock-search-reload.png" />
+    <Content Include="StocksPageN.aspx" />
+    <Content Include="GetStocksForWidgetN.aspx" />
+    <Content Include="js\NewsStocks.js" />
+    <Content Include="js\NewsFlash.js" />
+    <Content Include="NBScripts\stocksWidgetN.sql" />
+    <Content Include="NBScripts\stocksWidgetN.xslt" />
+    <Content Include="StocksWidgetN.aspx" />
     <Content Include="css\stocks.css" />
     <Content Include="css\style.css" />
     <Content Include="GetStocksForWidget.aspx" />
@@ -88,6 +102,27 @@
   <ItemGroup>
     <Compile Include="Common.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StocksPageN.aspx.cs">
+      <DependentUpon>StocksPageN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StocksPageN.aspx.designer.cs">
+      <DependentUpon>StocksPageN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetStocksForWidgetN.aspx.cs">
+      <DependentUpon>GetStocksForWidgetN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetStocksForWidgetN.aspx.designer.cs">
+      <DependentUpon>GetStocksForWidgetN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StocksWidgetN.aspx.cs">
+      <DependentUpon>StocksWidgetN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StocksWidgetN.aspx.designer.cs">
+      <DependentUpon>StocksWidgetN.aspx</DependentUpon>
     </Compile>
     <Compile Include="GetStocksForWidget.aspx.cs">
       <DependentUpon>GetStocksForWidget.aspx</DependentUpon>
