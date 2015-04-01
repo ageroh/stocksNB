@@ -60,9 +60,22 @@ h1{color:#6d6e71;font-size:20px;letter-spacing: 5px;margin:20px auto;}
 	    .block .linksCnt a:hover,.block .linksCnt a.selected{background-color: #1a2a4c;color:#fff}
 
 .newstmp .headCnt{border-top:7px solid #EEEBED;border-bottom:7px solid #EEEBED;padding:10px 0;margin:0 0 30px 0 }
-.newstmp #infoCnt {position: absolute;top:0;left:0;z-index:2;border:7px solid #EEEBED; padding:5px;background-color: #fff;max-width: 290px;display: none;}
-.newstmp #infoCnt h2	{background-color:#EEEBED;padding:5px;font-size:30px;margin-bottom:5px}
+.newstmp #infoCnt {position: absolute;top:0;left:0;z-index:2;border:7px solid #EEEBED; padding:5px;background-color: #fff;max-width:initial;display: none;width:595px;position:relative}
+.newstmp #infoCnt table{width:100%;font-size: 16px;}
+.newstmp #infoCnt h2 {background-color:#EEEBED;padding:5px;font-size:30px;}
+.newstmp #infoCnt .stockdesc {background-color:#EEEBED;padding:5px;font-size:20px;margin-bottom:5px;display: block;color: #787878;}
+.newstmp #infoCnt .price {background-color:#fff;padding: 3px 6px;font-size: 26px;position: absolute;top: 10px;right: 10px;}
+.newstmp #infoCnt .price:after{content:'\20AC';}
+.newstmp #infoCnt .price.red {background-color:#cb0000; color:#fff}
+.newstmp #infoCnt .price.green {background-color:#356927; color:#fff }
+.newstmp  .headCnt h2{margin-left:6px}
+.newstmp .selCont{text-align: right;font-size: 16px;margin: 10px 7px 9px 0;color: #999;}
+.newstmp #allStocksDD{padding: 3px 5px;margin-left: 6px;color: #444;}
+
+
 .newstmp #infoCnt table{border-collapse: collapse;}
 .newstmp #infoCnt table tr{}
 .newstmp #infoCnt table tr td{padding:5px;margin:5px 0}
 .newstmp #infoCnt table tr:nth-child(odd){background-color:#e4e7ef }
+.newstmp #infoCnt .diffPrice {padding: 6px 4px;font-size: 21px;position: absolute;top: 53px;right: 5px;}
+.newstmp .graphStock {padding: 20px;width: 500px;position: absolute;display: block;}

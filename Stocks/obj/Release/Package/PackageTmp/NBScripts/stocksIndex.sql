@@ -33,9 +33,9 @@ SELECT
         (
             
             Select 
-                    [Security].[Symbol] As [@Key],
+					[Security].[Symbol] As [@Key],
                     SUBSTRING(Symbol,1,1) As [@Letter],
-                    [Category].[CategoryName] As [Category],
+					[Category].[CategoryName] As [Category],
                     CAST([Security].[Last] AS Decimal(5,2)) As [currencychange:Price],
                     CAST([Security].[TotalVolume] AS Decimal(15,0)) As [TotalVolume],
                     CAST([Security].[PercentChange] AS Decimal(15,2)) As [percentchange:PercentChange],

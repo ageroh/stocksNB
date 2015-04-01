@@ -281,3 +281,11 @@ ol ol ol li 			{ list-style-type: lower-roman; }
 
 
 /***********************************************************************************************************************************************************************************************************************************************************************************/
+
+.newsWid .real-time{display:none}
+.newsWid  .stocks-widget-for-others h1{  border-top: 18px solid #E21A22;color: #696969;}
+.newsWid .stock-nav,.newsWid .stocks-widget-for-others .stock-search{background-image:none;background:#efefef;height: 28px;}
+.newsWid  .stocks-widget-for-others .stock-search input[type="text"]{background: #FFF;width: 76px;height: 14px;border: solid 1px #ccc;line-height: normal;}
+.newsWid .stocks-widget-for-others .stock-nav ul li{border-right:none}
+.newsWid .stocks-widget-for-others table.head th{color: #545454;}
+.newsWid h1{display:none}

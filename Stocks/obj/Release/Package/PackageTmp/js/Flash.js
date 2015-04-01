@@ -250,31 +250,31 @@ var Flash = {
     },
     CreateStocksWidget: function () {
         var p = '/GetStocksForWidget.aspx';
-        if (this.FlashHelper.hasRightVersion()) {
-            return this.Create(
-				'src', '/media/metoxes',
-				'movie', '/media/metoxes',
-				'id', 'metoxes',
-				'name', 'metoxes',
-				'width', '298',
-				'height', '280',
-				'align', 'lt',
-				'salign', 'lt',
-				'menu', 'false',
-				'quality', 'high',
-				'play', 'true',
-				'loop', 'false',
-				'scale', 'showall',
-				'wmode', 'transparent',
-				'devicefont', 'false',
-				'flashvars', 'xmlPath=' + escape(p),
-				'allowFullScreen', 'true',
-				'allowScriptAccess', 'sameDomain',
-				'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
-				'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0'
-				).replace(/metoxes\.swf/ig, 'metoxes.swf?v=1');
-        }
-        else {
+        //if (this.FlashHelper.hasRightVersion()) {
+        //    return this.Create(
+		//		'src', '/media/metoxes',
+		//		'movie', '/media/metoxes',
+		//		'id', 'metoxes',
+		//		'name', 'metoxes',
+		//		'width', '298',
+		//		'height', '280',
+		//		'align', 'lt',
+		//		'salign', 'lt',
+		//		'menu', 'false',
+		//		'quality', 'high',
+		//		'play', 'true',
+		//		'loop', 'false',
+		//		'scale', 'showall',
+		//		'wmode', 'transparent',
+		//		'devicefont', 'false',
+		//		'flashvars', 'xmlPath=' + escape(p),
+		//		'allowFullScreen', 'true',
+		//		'allowScriptAccess', 'sameDomain',
+		//		'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
+		//		'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0'
+		//		).replace(/metoxes\.swf/ig, 'metoxes.swf?v=1');
+        //}
+        //else {
         return '<div class="real-time">        <img alt="" src="media/real-on.png"></img>    </div> ' +
              '  <h1>        τιμές μετοχών</h1>                                                  ' +
              '  <div>    </div>                                                                 ' +
@@ -288,10 +288,10 @@ var Flash = {
              '           <th>                    ΟΓΚΟΣ                </th>                     ' +
              '         </tr>                                                                       ' +
              '     </tbody>                                                                                             ' +
-             '   </table>                                                                                                 ' +
-             '   <div style="height: 179px; position: relative; overflow: hidden;" class="scroll-viewport">                ' +
+             '   </table>                ' +
+             '   <a href="http://newsbeast.cantaloop.gr/xrimatistirio" ><div style="height: 179px; position: relative; overflow: hidden;" class="scroll-viewport">                ' +
              '      <div class="scrolled" style="position: absolute;">        </div>                                         ' +
-             '  </div>  ' +
+             '  </div></a>  ' +
              '   <div class="stock-search">        <input type="text" /><input type="image" src="media/stock-search-input-img.png" />    </div>  ' + 
              '   <div class="stock-nav">             ' +
              '      <ul>                                                                                                                 ' +
@@ -305,18 +305,18 @@ var Flash = {
 
 
 
-        }
+       // }
     },
     Create: function () {
         var alternateContent;
         alternateContent = '<p>Για να δείτε το περιεχόμενο της σελίδας, πρέπει να εγκαταστήσετε το <a href="http://get.adobe.com/flashplayer/">Adobe Flash Player v10.0<\/a><\/p>';
 
-        if (this.FlashHelper.hasRightVersion()) {
-            return this.FlashHelper.AC_FL_RunContent.apply(this.FlashHelper, arguments);
-        }
-        else {
+      //  if (this.FlashHelper.hasRightVersion()) {
+      //      return this.FlashHelper.AC_FL_RunContent.apply(this.FlashHelper, arguments);
+      //  }
+      //  else {
             return alternateContent;
-        }
+      //  }
 
     }
 }

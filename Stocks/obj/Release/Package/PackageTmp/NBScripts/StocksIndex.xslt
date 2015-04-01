@@ -31,16 +31,17 @@
             switch (key)
             {
                 case "Stocks_Category": return "Κατηγορία Μετοχής"; 
-                case "Stocks_Price": return "% Διαφορά Τιμής"; 
-                case "Stocks_TotalVolume": return "Μέγιστη Τιμή"; 
-                case "Stocks_PercentChange": return "Ελάχιστη Τιμή"; 
-                case "Stocks_HighPrice": return "Προηγούμενη Τιμή"; 
-                case "Stocks_LowPrice": return "Τιμή Αγοράς"; 
-                case "Stocks_PreviousPrice": return "Όγκος Αγοράς"; 
-                case "Stocks_BuyPrice": return "Τιμή Πώλησης"; 
-                case "Stocks_BuyVolume": return "Όγκος Πώλησης"; 
-                case "Stocks_SellPrice": return "Τελευταία Ενημέρωση"; 
-                default: return "Συνολικός Όγκος";
+                case "Stocks_Price": return "Τιμή Μετοχής"; 
+                case "Stocks_TotalVolume": return "Συνολικός Όγκος"; 
+                case "Stocks_PercentChange": return "% Διαφορά Τιμής"; 
+                case "Stocks_HighPrice": return "Μέγιστη Τιμή"; 
+                case "Stocks_LowPrice": return "Ελάχιστη Τιμή"; 
+                case "Stocks_PreviousPrice": return "Προηγούμενη Τιμή"; 
+                case "Stocks_BuyPrice": return "Τιμή Αγοράς"; 
+                case "Stocks_BuyVolume": return "Όγκος Αγοράς"; 
+                case "Stocks_SellPrice" : return "Τιμή Πώλησης";
+                case "Stocks_SellVolume" : return "Όγκος Πώλησης";
+                default: return "";
             }
         }
     ]]>

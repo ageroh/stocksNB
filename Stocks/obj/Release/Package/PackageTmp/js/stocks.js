@@ -266,7 +266,7 @@ jQuery(function () {
                 var rowData = data[key];
                 var v = parseFloat(rowData['b']);
                 html += '<tr class="' + (rowindex % 2 == 0 ? 'color' : '') + '">';
-                html += '<td class="name ' + (v < 0 ? 'down' : (v > 0 ? 'up' : '')) + '"><a href="' + url + '">' + key + '</a></td>';
+                html += '<td class="name ' + (v < 0 ? 'down' : (v > 0 ? 'up' : '')) + '"><a href="http://newsbeast.cantaloop.gr/xrimatistirio">' + key + '</a></td>';
                 html += '<td class="price ' + (v < 0 ? 'down' : (v > 0 ? 'up' : '')) + '">' + rowData['a'] + '</td>';
                 html += '<td class="change ' + (v < 0 ? 'down' : (v > 0 ? 'up' : '')) + '">' + rowData['c'] + '</td>';
                 html += '<td class="percent ' + (v < 0 ? 'down' : (v > 0 ? 'up' : '')) + '">' + rowData['b'] + '%</td>';

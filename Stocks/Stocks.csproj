@@ -64,6 +64,8 @@
     <Content Include="media\stock-search-input.png" />
     <Content Include="media\stock-search-reload-hover.png" />
     <Content Include="media\stock-search-reload.png" />
+    <Content Include="NBScripts\stocksIndexN.sql" />
+    <Content Include="NBScripts\StocksIndexN.xslt" />
     <Content Include="StocksPageN.aspx" />
     <Content Include="GetStocksForWidgetN.aspx" />
     <Content Include="js\NewsStocks.js" />

@@ -41,7 +41,7 @@
                 case "Stocks_BuyVolume": return "Όγκος Αγοράς"; 
                 case "Stocks_SellPrice" : return "Τιμή Πώλησης";
                 case "Stocks_SellVolume" : return "Όγκος Πώλησης";
-                default: return "";
+                 default: return key;
             }
         }
     ]]>
@@ -120,12 +120,54 @@
     
     <script type="text/javascript">
       <xsl:text>var stocks = {</xsl:text>
-      <xsl:apply-templates select="/Stocks/Stock" mode="JSON" />
+        <xsl:apply-templates select="/Stocks/Stock" mode="JSON" />
+      <xsl:text>};</xsl:text>
+    
+      <xsl:text>var allStocks = {</xsl:text>
+        <xsl:apply-templates select="/Stocks/AllStocks" mode="JSON_ALL_STOCKS" />
+      <xsl:text>};</xsl:text>
+      
+      <xsl:text>var tmpdataStockWeek = {</xsl:text>
+          <xsl:apply-templates select="/Stocks/DataGraph" mode="JSON_GRAPH" />
       <xsl:text>};</xsl:text>
     </script>
-    
   </xsl:template>
 
+  
+   <xsl:template match="Stock" mode="JSON_ALL_STOCKS">
+    <xsl:text>"</xsl:text>
+    <xsl:value-of select="@Key"/>
+    <xsl:text>":{</xsl:text>
+        <xsl:text>"</xsl:text>
+        <xsl:value-of select="local-name()"/>
+        <xsl:text>":</xsl:text> 
+        <xsl:apply-templates select="." mode="value" />
+    <xsl:text>}</xsl:text>
+    <xsl:if test="position() != last()">
+      <xsl:text>,</xsl:text>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="DayGraph" mode="JSON_GRAPH">
+    <xsl:text>"</xsl:text>
+    <xsl:value-of select="@DateSprint"/>
+    <xsl:text>":{</xsl:text>
+      <xsl:for-each select="*">
+        <xsl:text>"</xsl:text>
+        <xsl:value-of select="local-name()"/>
+        <xsl:text>":</xsl:text> 
+        
+        <xsl:apply-templates select="." mode="valueXXX" />
+        <xsl:if test="position() != last()">
+          <xsl:text>,</xsl:text>
+        </xsl:if>
+    </xsl:for-each>
+    <xsl:text>}</xsl:text>
+    <xsl:if test="position() != last()">
+      <xsl:text>,</xsl:text>
+    </xsl:if>
+  </xsl:template>
+    
   <xsl:template match="Stock" mode="JSON">
     <xsl:text>"</xsl:text>
     <xsl:value-of select="@Key"/>
@@ -144,11 +186,13 @@
       <xsl:text>,</xsl:text>
     </xsl:if>
   </xsl:template>
-  <xsl:template match="percent:*" mode="value">
+  
+    <xsl:template match="percent:*" mode="value">
     <xsl:text>{"type":"percent","value":"</xsl:text>
     <xsl:value-of select="."/>
     <xsl:text>"}</xsl:text>
   </xsl:template>
+
   <xsl:template match="currency:*" mode="value">
     <xsl:text>{"type":"currency","value":"</xsl:text>
     <xsl:value-of select="."/>
@@ -160,13 +204,22 @@
     <xsl:value-of select="."/>
     <xsl:text>"}</xsl:text>
   </xsl:template>
+    
   <xsl:template match="currencychange:*" mode="value">
     <xsl:text>{"type":"currencychange","value":"</xsl:text>
     <xsl:value-of select="."/>
     <xsl:text>"}</xsl:text>
   </xsl:template>
+    
   <xsl:template match="*" mode="value">
     <xsl:text>{"type":"plain","value":"</xsl:text>
+    <xsl:value-of select="."/>
+    <xsl:text>"}</xsl:text>
+  </xsl:template>
+
+  
+  <xsl:template match="*" mode="valueXXX">
+    <xsl:text>{"value":"</xsl:text>
     <xsl:value-of select="."/>
     <xsl:text>"}</xsl:text>
   </xsl:template>

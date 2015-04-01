@@ -29,7 +29,7 @@
     <xsl:text>},"u":"</xsl:text>
     <xsl:value-of select="concat('?pid=',$StocksIndexPageID,'&amp;la=1')"/>
     <xsl:text>","w":"</xsl:text>
-    <xsl:value-of select="concat('?pid=',$WidgetPageID,'&amp;la=1')"/>
+    <!--<xsl:value-of select="concat('?pid=',$WidgetPageID,'&amp;la=1')"/>-->
     <xsl:text>","d":"</xsl:text>
     <xsl:value-of select="concat(ms:format-date(Stocks/LastUpdate,'dd/MM/yyyy'),' ',ms:format-time(Stocks/LastUpdate,'HH:mm'))"/>
     <xsl:text>",</xsl:text>

@@ -79,12 +79,41 @@ $(function(){
 
 		//display data
 		$infoCnt.empty();
-		var _infoHtml = '<h2>' + stockID  + '</h2><table>';
-		$.each(_dt, function(i,el){
-			_infoHtml += '<tr>' ;
-			_infoHtml += '<td>' + i + '<td>';
-			_infoHtml += '<td>' + el.value + '<td>';
-			_infoHtml += '</tr>';
+
+		stockDesc = "";
+		if( _dt["Stocks_StockDesc"] != null)
+    		stockDesc = _dt["Stocks_StockDesc"].value;
+		
+		stockPrice = 0;
+		diffPrice = 0.0;
+		if (_dt["% Διαφορά Τιμής"] != null)
+		    diffPrice = _dt["% Διαφορά Τιμής"].value;
+
+		typePrice = "";
+		if (_dt["Τιμή Μετοχής"] != null)
+		    stockPrice = _dt["Τιμή Μετοχής"].value;
+
+		if (diffPrice > 0.0) typePrice = " green";
+		if (diffPrice < 0.0) typePrice = " red";
+
+		var _infoHtml = '<h2>' + stockID + '</h2>';
+		_infoHtml += '<span class="stockdesc">' + stockDesc + '</span>';
+		_infoHtml += '<span class="price' + typePrice + '">' + stockPrice + '</span>';
+
+		if (stockPrice != 0)
+            _infoHtml += '<span class="diffPrice">' + diffPrice + '%</span>';
+		
+
+		_infoHtml += '<table>';
+		
+        $.each(_dt, function(i,el){
+
+		    if (i != "Stocks_StockDesc") {
+		        _infoHtml += '<tr>';
+		        _infoHtml += '<td>' + i + '<td>';
+		        _infoHtml += '<td>' + el.value + '<td>';
+		        _infoHtml += '</tr>';
+		    }
 		});
 		_infoHtml += '</table>';
 		$infoCnt.html(_infoHtml);

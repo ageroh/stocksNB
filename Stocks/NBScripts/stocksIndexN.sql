@@ -1,4 +1,3 @@
-
 -- /* GMT:0 , so added +2 hours on timestamp */
 WITH XMLNAMESPACES ('urn:currency' as currency,'urn:percent' as [percent],'urn:currencychange' as currencychange,'urn:percentchange' as [percentchange])
 SELECT 
@@ -18,15 +17,51 @@ SELECT
             SymbolEng = 'GD'
         FOR XML PATH('MainIndex'),TYPE
         ),
+        
+		(        
+			select DISTINCT
+					  s.[Symbol] As [@Key]
+					, LEFT(convert(nvarchar(12), t.Date, 3), 5) as [@DateSprint]
+					--, SUBSTRING(s.Symbol,1,1) As [@Letter]
+					, CAST(t.[Open] AS Decimal(15,3)) as OpenWeek
+					, CAST(t.High AS Decimal(15,3)) as HighWeek
+					, CAST(t.Low AS Decimal(15,3)) as LowWeek
+					, CAST(t.[Close] AS Decimal(15,3)) as CloseWeek
+					, CAST(t.Volume AS Decimal(15,3)) as VolumeWeek
+					, CAST(t.Turnover AS Decimal(15,3)) as TurnoverWeek
+					, t.Date as  nDate
+					, convert(nvarchar(12), t.Date, 112) as DateS1
+					
+			FROM dbo.TimeSeries t
+			INNER JOIN [Security] s
+				ON s.InsCode = t.InsCode
+			WHERE InstrumentType = 1 
+				AND s.ProductCode = 150
+				and t.Product = 150
+				AND t.date > getdate()-16 
+				AND t.date <> getdate()
+				AND s.Symbol = N'$$stockValue$$'
+			ORDER BY t.Date desc
+			FOR XML Path('DayGraph'),TYPE
+		 ) AS DataGraph
+		 ,
+		 (        
+			select DISTINCT
+						s.[Symbol] as [@Key]
+			FROM [Security] s
+			WHERE InstrumentType = 1 
+				AND s.ProductCode = 150
+			FOR XML Path('Stock'),TYPE
+		 ) AS AllStocks,
+        
         (
         Select 
             DISTINCT(SUBSTRING(Symbol,1,1)) As Letter
         From
             [Security]
-        Where
-                InstrumentType = 1
-                    AND
-                ProductCode = 150
+        Where InstrumentType = 1
+              AND ProductCode = 150
+			  AND Symbol = N'$$stockValue$$'
         Order By SUBSTRING(Symbol,1,1) Asc
         FOR XML Path('Letter'),TYPE
         ) AS Letters,
@@ -35,6 +70,7 @@ SELECT
             Select 
 					[Security].[Symbol] As [@Key],
                     SUBSTRING(Symbol,1,1) As [@Letter],
+					[Security].Des  As [StockDesc],
 					[Category].[CategoryName] As [Category],
                     CAST([Security].[Last] AS Decimal(5,2)) As [currencychange:Price],
                     CAST([Security].[TotalVolume] AS Decimal(15,0)) As [TotalVolume],
@@ -46,16 +82,12 @@ SELECT
                     CAST([Security].[BidSize] AS Decimal(15,0)) As [BuyVolume],
                     CAST([Security].[Ask] AS Decimal(15,2)) As [currency:SellPrice],
                     CAST([Security].[AskSize] AS Decimal(15,0)) As [SellVolume]
-            From
-                [Security]
-                    Left Join
-                [Category]
-                    On
-                    [Security].[CategoryNo] = [Category].[CategoryNo]
-            Where
-                InstrumentType = 1
-                    AND
-                ProductCode = 150
+            From [Security]
+            Left Join [Category]
+				On [Security].[CategoryNo] = [Category].[CategoryNo]
+            Where InstrumentType = 1
+				 AND ProductCode = 150
+				 AND Symbol = N'$$stockValue$$'
             Order By Symbol Asc
             FOR XML Path('Stock'),TYPE
             )

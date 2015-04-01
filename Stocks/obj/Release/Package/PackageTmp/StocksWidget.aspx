@@ -1,13 +1,14 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StocksWidget.aspx.cs" Inherits="Stocks.StocksWidget" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
-    <title></title>
-    <link id="Link1" rel="stylesheet" runat="server" media="screen" href="~/css/stocks.css" />
+<head>
+    <title>Newsbeast.gr - Stocks Widget</title>
+    <base target="_parent" />
+    <link rel="stylesheet" media="screen" href="css/stocks.css?v=18" />
     <script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
-    <script type="text/javascript" src="js/Flash.js" charset="windows-1253" ></script>
-    <script type="text/javascript" src="js/stocks.js" charset="windows-1253" ></script>
-
+    <script type="text/javascript" src="js/Flash.js?v=18" charset="windows-1253" ></script>
+    <script type="text/javascript" src="js/stocks.js?v=18" charset="windows-1253" ></script>
+   
 </head>
 <body>
     <div id="customWidgetStocks">
@@ -31,7 +32,7 @@
                     <div class="stock-footr">
                         <span style="font-size: 9px;">Οι τιμές παρουσιάζονται με 15λεπτη καθυστέρηση. Πηγή: Globalsoft&nbsp;</span>
                         <p>
-                        <a onclick="window.open('/StocksWidget.aspx' , 'sctockswindow','menubar=no,resizable=no,width=300,height=435'); return false;" href="/xa/widget/" target="_blank">
+                        <a onclick="window.open('/StocksWidget.aspx' , 'sctockswindow','menubar=no,resizable=no,width=300,height=435'); return false;" href="/x/widget/" target="_blank">
                             ΑΝΟΙΞΤΕ ΤΟ TICKER ΣΕ ΝΕΟ ΠΑΡΑΘΥΡΟ</a> »
                         </p>
                     </div>

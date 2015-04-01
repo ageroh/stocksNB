@@ -22,7 +22,7 @@ namespace Stocks
 
 
 
-        public XmlDocument produceXMLfromSQL(String SQLFileQuery)
+        public XmlDocument produceXMLfromSQL(String SQLFileQuery, string replacestr = null)
         {
             XmlDocument xdoc = new XmlDocument();
             SqlConnection cnn = null;
@@ -35,6 +35,10 @@ namespace Stocks
                 cnn.Open();
 
                 string selectQry = File.ReadAllText(Server.MapPath(@"~/NBScripts/" + SQLFileQuery + ".sql"));
+                if (replacestr != null)
+                {
+                    selectQry = selectQry.Replace("$$stockValue$$", replacestr);
+                }
 
                 cmd = new SqlCommand(selectQry, cnn);
                 //cmd.Parameters.AddWithValue("@ID", ID);
@@ -62,6 +66,7 @@ namespace Stocks
             }
 
         }
+
 
 
         public string getConStringSQL()
