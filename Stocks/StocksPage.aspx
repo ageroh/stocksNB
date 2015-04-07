@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StocksPage.aspx.cs" Inherits="Stocks.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StocksPage.aspx.cs" Inherits="StocksNews.WebForm1" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">

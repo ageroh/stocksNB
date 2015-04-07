@@ -1,8 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StocksWidget.aspx.cs" Inherits="Stocks.StocksWidget" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StocksWidget.aspx.cs" Inherits="StocksNews.StocksWidget" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Newsbeast.gr - Stocks Widget</title>
+    <title>Stocks Widget</title>
     <base target="_parent" />
     <link rel="stylesheet" media="screen" href="css/stocks.css?v=18" />
     <script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Stocks {
+namespace StocksNews {
     
     
     public partial class StocksWidget {

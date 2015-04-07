@@ -5,7 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text;
 
-namespace Stocks
+namespace StocksNews
 {
     public partial class StocksWidget : System.Web.UI.Page
     {

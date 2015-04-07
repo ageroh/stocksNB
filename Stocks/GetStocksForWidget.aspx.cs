@@ -15,7 +15,7 @@ using System.Text;
 using System.Web.Configuration;
 using System.Collections.Generic;
 
-namespace Stocks
+namespace StocksNews
 {
     public partial class GetStocksForWidget : Common
     {
