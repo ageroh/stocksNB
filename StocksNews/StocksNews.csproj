@@ -57,9 +57,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\dropkick.css" />
     <Content Include="css\stocks.css" />
     <Content Include="css\style.css" />
     <Content Include="GetStocksForWidgetN.aspx" />
+    <Content Include="js\dropkick.js" />
     <Content Include="js\Flash.js" />
     <Content Include="js\jquery-1.8.3.min.js" />
     <Content Include="js\NewsFlash.js" />

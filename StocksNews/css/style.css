@@ -73,10 +73,13 @@ h1{color:#6d6e71;font-size:20px;letter-spacing: 5px;margin:20px auto;}
 .newstmp .selCont{text-align:center;font-size: 16px;margin: 10px 7px 9px 0;color: #999;}
 .newstmp #allStocksDD{padding: 3px 5px;margin-left: 6px;color: #444;}
 
-
 .newstmp #infoCnt table{border-collapse: collapse;}
 .newstmp #infoCnt table tr{}
 .newstmp #infoCnt table tr td{padding:5px;margin:5px 0}
 .newstmp #infoCnt table tr:nth-child(odd){background-color:#e4e7ef }
 .newstmp #infoCnt .diffPrice {padding: 6px 4px;font-size: 21px;position: absolute;top: 53px;right: 5px;}
 .newstmp .graphStock {text-align: center;font-size: 1.5em;margin: 0;border: solid 7px #EEEBED;max-width: 593px;border-top: none;padding: 6px;}
+
+.newstmp .dk-option.red {color: rgb(211, 29, 29); }
+.newstmp .dk-option.green {color: rgb(31, 211, 29);}
+	  

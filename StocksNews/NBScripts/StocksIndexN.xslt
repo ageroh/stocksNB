@@ -142,7 +142,7 @@
         <xsl:value-of select="local-name()"/>
         <xsl:text>":</xsl:text> 
         <xsl:apply-templates select="." mode="valueStockEN" />
-    <xsl:text>}</xsl:text>
+     <xsl:text>}</xsl:text>
     <xsl:if test="position() != last()">
       <xsl:text>,</xsl:text>
     </xsl:if>
@@ -156,7 +156,6 @@
         <xsl:text>"</xsl:text>
         <xsl:value-of select="local-name()"/>
         <xsl:text>":</xsl:text> 
-        
         <xsl:apply-templates select="." mode="valueXXX" />
         <xsl:if test="position() != last()">
           <xsl:text>,</xsl:text>
@@ -226,8 +225,7 @@
 
   <xsl:template match="*" mode="valueStockEN">
     <xsl:text>{"value":"</xsl:text>
-    <xsl:value-of select="@Value"/>
-    <xsl:text>"}</xsl:text>
+    <xsl:value-of select="@Value"/><xsl:text>", "css":"</xsl:text><xsl:value-of select="@CssClass"/><xsl:text>"}</xsl:text>
   </xsl:template>
 
   

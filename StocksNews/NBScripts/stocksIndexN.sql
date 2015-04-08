@@ -50,7 +50,12 @@ SELECT
 			select DISTINCT
 						  s.[Symbol] as [@Key]
 						, s.SymbolEng as [@Value]
+						, (case when s.[PercentChange] > 0.0 then 'green'
+								when s.[PercentChange] < 0.0 then 'red'
+								else 'zero' end) as [@CssClass]
 			FROM [Security] s
+			Left Join [Category]
+				On s.[CategoryNo] = [Category].[CategoryNo]
 			WHERE InstrumentType = 1 
 				AND s.ProductCode = 150
 				AND s.[Symbol] not like '%@%'
