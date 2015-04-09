@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StocksNewsbeast", "Stocks\StocksNewsbeast.csproj", "{41FE5C62-A881-470B-B679-7B5E259EE51B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StocksNewsbeast", "StocksNewsbeast\StocksNewsbeast.csproj", "{41FE5C62-A881-470B-B679-7B5E259EE51B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StocksNews", "StocksNews\StocksNews.csproj", "{19A2D09E-BA3C-47E9-A9A1-B242EA3CBF4D}"
 EndProject

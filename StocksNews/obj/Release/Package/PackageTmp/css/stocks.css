@@ -1,0 +1,291 @@
+
+/**
+    Taken from Formating.css, Structure.css
+    */
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,greek);
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td
+						{ background:transparent; border:0; font-size:100%; margin:0; outline:0; padding:0; vertical-align:baseline; }
+body					{ line-height:1; }
+blockquote, q 			{ quotes:none; }
+blockquote:before, blockquote:after, q:before, q:after { content:''; content:none; }
+
+@font-face {
+    font-family: 'pf_din_text_cond_proregular';
+    src: url('/fonts/nb2-regular-web.eot');/*pfdintextcomppro-regular-web*/
+    src: url('/fonts/nb2-regular-web.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/nb2-regular-web.woff') format('woff'),
+         url('/fonts/nb2-regular-web.ttf') format('truetype'),
+         url('/fonts/nb2-regular-web.svg#pf_din_text_cond_proregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'pf_din_text_cond_probold';
+    src: url('/fonts/nb2-bold-web.eot');
+    src: url('/fonts/nb2-bold-web?#iefix') format('embedded-opentype'),
+         url('/fonts/nb2-bold-web.woff') format('woff'),
+         url('/fonts/nb2-bold-web.ttf') format('truetype'),
+         url('/fonts/nb2-bold-web.svg#pf_din_text_cond_probold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* remember to define focus styles! */
+:focus 					{ outline:0; }
+
+/* remember to highlight inserts somehow! */
+ins 					{ text-decoration:none; }
+del 					{ text-decoration:line-through; }
+
+/* tables still need 'cellspacing="0"' in the markup */
+table 					{ border-collapse:separate; border-spacing:0; }
+
+/* ---------- Defaults ---------- */
+a, a:link, a:visited 	{ color:#444343; text-decoration:none; }
+a:hover, a:focus, a:active 	{ color:#444343; outline:none; text-decoration:underline; }
+a img 					{ border:none; line-height:0.1%; }
+a span					{ cursor:pointer; }
+address					{ font-style:italic; margin:0 0 1.5em 0; }
+blockquote				{ font-style:italic; margin:1em; }
+body					{ background-color:#efefef; color:#000; font-family:Arial, Helvetica, sans-serif; font-size:75%; line-height:120%; /*background:url(../../media/body.png) repeat-y scroll center top #EFEFEF*/ }
+button, input.button	{ border:none; cursor:pointer; font-family:Arial, Helvetica, sans-serif; margin:0; padding:0; vertical-align:middle; width:auto; }
+caption					{ font-weight:bold; margin-bottom:.2em; padding-left:5px; }
+dd						{ margin-left:15px; }
+dl						{ margin:1em 0; }
+dt						{ font-weight:bold; }
+em						{ font-style:italic; }
+h1, h2, h3,	h4, h5, h6 	{ font-family:Arial, sans-serif; text-align:left; }
+h1						{ font-size:2.2em; margin-bottom:1em; }
+h2						{ font-size:2.0em; margin-bottom:1em; }
+h3						{ font-size:1.8em; margin-bottom:1em; }
+h4						{ font-size:1.6em; margin-bottom:.5em; }
+h5						{ font-size:1.4em; margin-bottom:.5em; }
+h6						{ font-size:1.2em; margin-bottom:.5em; }
+/* html 					{ overflow-y:scroll; } */
+img 					{ border:none; }
+input, button, select, option, textarea { background-color:#fff; color:#726f6f; font-family:Arial, Helvetica, sans-serif; font-size:1em; }
+li						{ margin:0 0 .2em 2em; padding:0; }
+ol						{ margin:1em 0; list-style-type:decimal; }
+optgroup				{ font-style:normal; font-weight:bold; }
+p						{ line-height:140%; margin:1em 0; }
+select 					{ padding:3px; }
+strong, b				{ font-weight:bold; }
+sup, sub				{ line-height:0; }
+table					{ margin-bottom:1em; }
+tfoot					{ font-style:italic; }
+thead td, th			{ font-weight:bold; }
+th, td					{ padding:4px 8px; vertical-align:top; }
+ul						{ margin:1em 0; list-style-type:disc; }
+
+ol li 					{ list-style-type: decimal; }
+ul li 					{ list-style-type: disc; }
+ul ul li 				{ list-style-type: circle; }
+ul ul ul li 			{ list-style-type: square; }
+ol ol li 				{ list-style-type: lower-alpha; }
+ol ol ol li 			{ list-style-type: lower-roman; }
+
+.clearfix:after 		{ clear:both; content:' '; display:block; font-size:0; height:0; visibility:hidden; }
+
+.roboto{font-family: 'Roboto Condensed', sans-serif;}
+
+.bottomWrapper.sticky {position: fixed;top: 0;z-index: 5001;background: #FFF;}
+
+
+
+.offleft				{ text-align:center; }
+#wrapper				{ margin:0 auto; text-align:left; position:relative; width:984px; }
+
+/* Header */
+#header					{ clear:both; width:984px;float:right;background-color:#fff; }
+	.top				{ background-color:#fff; margin:11px 0 0; }
+	.logo				{ clear:both;height:134px;margin:0;text-align:center;width:984px;float:right; }
+	.logo h1		{ text-align:center; }
+	.main-menu			{ background-color:#000; color:#7d7a7a; margin:0 0 6px 0; }
+	.bottom				{ background-color:#FFFFFF;clear:both;padding:6px 6px 0;width:972px; }
+	.catimg				{ clear:both;height:auto;margin:0 0 5px;padding-top:0px;text-align:center; }
+	.catimg	h1			{ margin:0;text-align:center;}
+
+/* Content */
+#content				{ background-color:#fff; color:#7d7a7a; float:right; padding:10px 6px 6px 6px; position:relative; width:972px; }
+	#banner-left		{ left:-175px; padding:0 15px 15px 0; position:absolute; text-align:right; top:0; width:160px; }
+	#col-left			{ float:left; width:662px; }
+	#col-right			{ float:right; width:300px; }
+	#col-full			{ float:left; width:972px;}
+
+/* Footer */
+#footer					{ background-color:#fff; color:#635c5c; clear:both; padding:0 6px 10px 6px; width:972px; }
+	#footer .main-menu	{ margin-bottom:25px; }
+
+/* Popups */
+#login_popup 				{ background-color:#fff; left:165px; position:absolute; top:65px; width:648px; z-index:100; }
+#login_popup .wrap 			{ background-color:#666; border:3px double #d3d2d2; padding:8px; }
+#login_popup .wrap form 	{ background-color:#fff; display:block; overflow:hidden; position:relative; }
+#login_popup .wrap form p 	{ margin:0; }
+
+#sendfriend 				{ background-color:#fff; left:175px; position:absolute; top:65px; width:625px; z-index:100; }
+#sendfriend .wrap 			{ background-color:#666; border:3px double #d3d2d2; padding:8px; }
+#sendfriend .wrap form 		{ background-color:#fff; display:block; overflow:hidden; position:relative; }
+#sendfriend .wrap form p 	{ margin:0; }
+
+
+#papers_popup 				{ background-color:#FFFFFF;left:135px;position:absolute;top:65px;width:680px;z-index:1000;overflow:visible;border:3px solid #686868;}
+#papers_popup .wrap 		{ background-color:#FFFFFF;border:3px solid #D2D1D1;margin:2px;padding:8px; }
+#papers_popup .wrap form 	{ background-color:#fff; display:block; overflow:hidden; position:relative; }
+#papers_popup .wrap form p 	{ margin:0; }
+#papers_popup .close_popup	{ background:url(../Media/button-close.gif) no-repeat scroll right center transparent;top:0;color:#9B9696;display:block;float:right;font-size:0.916em;padding-right:14px;position:relative;right:1px; }
+#papers_popup img			{ border:1px solid #000;margin-top:10px;}
+
+
+#jscalendar 				{ background-color:#FFFFFF;border:3px solid #686868;right:0;overflow:visible;position:absolute;width:215px;z-index:1000;display:none;}
+#jscalendar .wrap 			{ background-color:#FFFFFF;margin:0;padding:0; }
+
+#direct-signup				{ background-color:#fff; left:175px; position:absolute; top:65px; width:605px; z-index:200000; }
+#direct-signup .wrap 			{ border:2px double #000000;overflow:hidden;}
+#direct-signup .wrap form 		{ background-color:#fff; display:block; overflow:hidden; position:relative; }
+#direct-signup .wrap form p 	{ margin:0;color:#726F6F;}
+
+/************** Three Columns********************/
+#col-middle {float:right; width:160px;}
+.col-three .article-teaser {width:492px;margin-bottom:15px}
+
+/***********************************************************************************************************************************************************************************************************************************************************************************/
+/***********************************************************************************************************************************************************************************************************************************************************************************/
+
+
+
+
+/* STOCKS */
+/* Taken from modules.css */
+/***********************************************************************************************************************************************************************************************************************************************************************************/
+
+.stock-header{background:url(../../media/tp-logo.png ) no-repeat scroll 880px 4px #FDB827;border-top:10px solid #003876;height:30px;margin-bottom:10px;padding-top:0}
+.stock-header h1{background:url(../../media/stock-h1-bg.png ) no-repeat scroll 3px center transparent;border-top:1px solid #FFFFFF;color:#003876;font-size:25px;font-weight:normal;line-height:22px;padding-bottom:4px;padding-left:20px;padding-top:4px}
+
+.stock-ticker{overflow:hidden;background-color:#eeeeee}
+.stock-ticker .left{background:url(../../media/ticker-title-bg.png ) no-repeat scroll left center transparent;float:left;margin-left:5px;padding-left:10px}
+.stock-ticker .right{float:right}
+.stock-ticker p{margin:0 5px}
+.stock-ticker .left p{color:#333333;font-weight:bold}
+.stock-ticker .left p b{color:#009900;font-weight:normal}
+.stock-ticker .left p span{font-weight:normal}
+.stock-ticker .right p{color:#999999;font-size:12px}
+.stock-ticker .right p b{color:#999999;font-size:12px;font-weight:bold}
+
+.stock-table-main table{border-collapse:seperate;margin:10px 0 10px 10px}
+.stock-table-main tr:first-child td, .stock-table-main tr:first-child th{}
+.stock-table-main td{background:#CCC;border-color:#FFFFFF;border-style:solid;border-width:5px 0 0 7px;color:#003876;font-weight:bold;height:18px;padding:0;vertical-align:middle;width:62px}
+.stock-table-main th{width:16px;padding:0;text-align:center;background-color:#003876;color:#FFFFFF;font-weight:bold;padding:0;border-color:#FFFFFF;border-style:solid;border-width:5px 0 0 0}
+.stock-table-main th[rowspan]{padding-top:2px}
+
+.stocks-widget{border:1px solid #CCCCCC;margin-bottom:15px}
+.stocks-widget h1{/*background:url(../../media/tp-2bg.jpg ) no-repeat scroll left center #FDB827;*/border-bottom:1px solid #CCCCCC;border-top:16px solid #003876;color:#003876;font-weight:normal;height:26px;line-height:30px;margin-bottom:0;padding:3px 5px 7px}
+.stocks-widget table{margin-bottom:0;padding:5px}
+.stocks-widget tr.color{background-color:#eeeeee;color:#999999}
+.stocks-widget tr.colortd{background-color:#eeeeee;padding:2px 8px;color:#999999}
+.stocks-widget tr.colortd.name{color:#333333}
+.stocks-widget td.name{color:#333333;font-weight:bold}
+.stocks-widget td.name.up{color:#009900}
+.stocks-widget td.name.down{color:#fb3c3c}
+.stocks-widget td.price{color:#999999}
+.stocks-widget td.price.up{color:#009900}
+.stocks-widget td.price.down{color:#fb3c3c}
+.stocks-widget td.percent{color:#999999}
+.stocks-widget td.percent.up{color:#009900}
+.stocks-widget td.percent.down{color:#fb3c3c}
+.stocks-widget td.change.up{color:#009900}
+.stocks-widget td.change.down{color:#fb3c3c}
+.stocks-widget td.change{color:#999999}
+
+
+.stocks-widget-for-others{border:1px solid #CCCCCC;position:relative;margin-bottom:15px}
+.stocks-widget-for-others .real-time{color:#6699CC;left:6px;position:absolute;top:0px}
+.stocks-widget-for-others .real-time img{position:relative;top:2px;margin-right:2px}
+.stocks-widget-for-others h1{/*background:url(../../media/tp-2bg.jpg ) no-repeat scroll right center #FDB827;*/border-bottom:1px solid #999999;border-top:18px solid #003876;color:#003876;font-weight:normal;height:25px;margin-bottom:0;padding:0px 5px 10px;line-height:30px}
+.stocks-widget-for-others table{margin-bottom:0;padding:5px;text-align:center}
+.stocks-widget-for-others table.head{padding:0}
+.stocks-widget-for-others table.head tr{background-color:#cccccc;color:#003876;text-align:center}
+.stocks-widget-for-others table.head td{width:25%}
+.stocks-widget-for-others table.head th{padding:2px 8px 1px;background-color:#cccccc}
+.stocks-widget-for-others tr.color{background-color:#eeeeee}
+.stocks-widget-for-others tr.color td{background-color:#eeeeee}
+.stocks-widget-for-others td{width:25%}
+.stocks-widget-for-others td.name{text-align:left}
+.stocks-widget-for-others td.name a{color:#999999;font-weight:bold;text-align:left}
+.stocks-widget-for-others td.name.up a{color:#009900}
+.stocks-widget-for-others td.name.down a{color:#fb3c3c}
+.stocks-widget-for-others td.price{color:#999999}
+.stocks-widget-for-others td.price.up{color:#009900}
+.stocks-widget-for-others td.price.down{color:#fb3c3c}
+.stocks-widget-for-others td.percent{color:#999999}
+.stocks-widget-for-others td.percent.up{color:#009900}
+.stocks-widget-for-others td.percent.down{color:#fb3c3c}
+.stocks-widget-for-others td.change.up{color:#009900}
+.stocks-widget-for-others td.change.down{color:#fb3c3c}
+.stocks-widget-for-others td.change{color:#999999}
+.stocks-widget-for-others .stock-search{background:url(../../media/stock-search-input.png ) repeat scroll 0 0 transparent;border-top:1px solid #CCCCCC;float:left;height:28px;position:relative;width:97px}
+.stocks-widget-for-others .stock-search input{background:none repeat scroll 0 0 transparent;border:medium none;height:12px;left:30px;line-height:22px;position:relative;width:50px;top:5px}
+.stocks-widget-for-others .stock-search input[type= image ]{background:none repeat scroll 0 0 transparent;height:16px;left:9px;position:absolute;top:4px;width:17px;padding-left:0}
+.stocks-widget-for-others .stock-footr{border-top:1px solid #CCCCCC;text-align:right;font-size:10px}
+.stocks-widget-for-others .stock-footr p{color:#666666;font-size:16px;font-weight:bold;line-height:100%;margin:0 0;padding:0 5px}
+.stocks-widget-for-others .stock-footr p a{font-size:9px;color:#666666}
+.stocks-widget-for-others .stock-footr p a:hover{text-decoration:underline}
+.stocks-widget-for-others .stock-nav{background:url(../../media/stock-search-arrow-bg.png ) no-repeat scroll center top transparent;border-top:1px solid #CCCCCC;float:left;height:25px;padding:0 10px;width:180px}
+.stocks-widget-for-others .stock-nav ul{margin:2px 0}
+.stocks-widget-for-others .stock-nav ul li{border-right:1px solid #D6D6D6;float:left;list-style:none outside none;margin:0;padding:0 8px;height:15px}
+.stocks-widget-for-others .stock-nav ul li.last{border-right:none}
+.stocks-widget-for-others .stock-nav ul li:hover{background-color:transparent;cursor:pointer}
+
+.stocks-popup{background-color:#FFFFFF;bottom:500px;left:265px;position:absolute;width:300px;border:3px solid #FFFFFF}
+.stocks-popup .stocks-widget{background-color:#FFFFFF}
+.stocks-popup .closebtn {
+    height: 25px;
+    display: block;
+    background: url(../media/Close.svg ) no-repeat;
+    top: 23px;
+    left: 272px;
+    position: absolute;
+    width: 25px;
+}
+.commentStocks {
+    float: left;
+    left: 10px;
+    position: relative;
+}
+
+#customWidgetStocks #wrapper {
+    margin: 0px;
+}
+
+#customWidgetStocks #content {
+    width: 300px;
+    float: left;
+    margin: 0px;
+    padding: 0px;
+}
+
+#customStocksPage #wrapper {
+    margin: 0px;
+}
+
+
+#customStocksPage #content {
+   width: 670px;
+   float: left;
+}
+
+
+/***********************************************************************************************************************************************************************************************************************************************************************************/
+
+.newsWid .real-time{display:none}
+.newsWid  .stocks-widget-for-others h1{  border-top: 18px solid #E21A22;color: #696969;}
+.newsWid .stock-nav,.newsWid .stocks-widget-for-others .stock-search{background-image:none;background:#efefef;height: 28px;}
+.newsWid  .stocks-widget-for-others .stock-search input[type="text"]{background: #FFF;width: 76px;height: 14px;border: solid 1px #ccc;line-height: normal;}
+.newsWid .stocks-widget-for-others .stock-nav ul li{border-right:none}
+.newsWid .stocks-widget-for-others table.head th{color: #545454;}
+.newsWid h1{display:none}

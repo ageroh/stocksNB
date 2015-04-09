@@ -1,0 +1,85 @@
+* { padding:0; margin:0; }
+html { height:100%; }
+body { font-family: 'Ubuntu', sans-serif; background: #fff;font-size: 12px; color:#1a2a4c; }
+
+img {border:none;}
+a {text-decoration: none;color:#1a2a4c}
+.fClear {clear:both}
+:focus {outline:0;}
+
+.w100{width:100%}
+.colLB{color:#009fde}
+
+.fontRob{font-family: "Roboto Condensed",sans-serif;}
+.fontN{font-weight: 400;}
+.fontB {font-weight: 700;}
+
+h1{color:#6d6e71;font-size:20px;letter-spacing: 5px;margin:20px auto;}
+.headCnt{border-top:7px solid #1a2a4c;border-bottom:7px solid #1a2a4c;padding:10px 0;margin:0 0 30px 0 }
+	.headCnt img{float:left;display: block;}
+	.headCnt .textCnt{margin-left:22px}
+	.headCnt h2{font-size:15px;margin-left:15px;display: inline-block;line-height: 25px;}
+	.headCnt .box {color:#fff;margin-left:10px;padding:3px 5px }
+	.headCnt .box.red {background-color:#cb0000; }
+	.headCnt .box.green {background-color:#356927; }
+
+.block{background-color: #e4e7ef;padding:10px;margin-bottom:10px}	
+.block h3{color:#cb0000;font-size:20px;float:left}
+.block .linksCnt {margin-left:20px}
+	.block .linksCnt a {display: inline-block;background-color: #fff;padding:3px 10px;margin:3px;
+	-webkit-transition: 	all .3s ease-in-out;
+ 	-moz-transition:        all .3s ease-in-out;
+    -o-transition:        	all .3s ease-in-out;
+    -ms-transition:       	all .3s ease-in-out;	
+    transition:         	all .3s ease-in-out;}
+    
+	.block .linksCnt a:hover,.block .linksCnt a.selected{background-color: #1a2a4c;color:#fff}
+
+#infoCnt {position: absolute;top:0;left:0;z-index:2;border:7px solid #1a2a4c;
+		  padding:5px;background-color: #fff;max-width: 290px;display: none;}
+	#infoCnt h2	{background-color:#ffb901;padding:5px;font-size:30px;margin-bottom:5px}
+
+#infoCnt table{border-collapse: collapse;}
+#infoCnt table tr{}
+#infoCnt table tr td{padding:5px;margin:5px 0}
+#infoCnt table tr:nth-child(odd){background-color:#e4e7ef }
+
+
+/* CSS for NewsBeast.gr */
+.newstmp {display: none;}
+
+.newstmp 
+    .block .linksCnt {margin-left:20px}
+	    .block .linksCnt a {display: inline-block;background-color: #fff;padding:3px 10px;margin:3px;
+	    -webkit-transition: 	all .3s ease-in-out;
+ 	    -moz-transition:        all .3s ease-in-out;
+        -o-transition:        	all .3s ease-in-out;
+        -ms-transition:       	all .3s ease-in-out;	
+        transition:         	all .3s ease-in-out;}
+    
+	    .block .linksCnt a:hover,.block .linksCnt a.selected{background-color: #1a2a4c;color:#fff}
+
+.newstmp .headCnt{border-top:7px solid #1a2a4c;border-bottom:7px solid #1a2a4c;padding:10px 0;margin:0 0 30px 0 }
+.newstmp #infoCnt {position: absolute;top:0;left:0;z-index:2;border:7px solid #1a2a4c; padding:5px;background-color: #fff;max-width:initial;display: none;width:595px;position:relative}
+.newstmp #infoCnt table{width:100%;font-size: 16px;}
+.newstmp #infoCnt h2 {padding:5px;font-size:30px;}
+.newstmp #infoCnt .stockdesc {background-color:#1a2a4c;padding:5px;font-size:20px;margin-bottom:5px;display: block;color: #fff;}
+.newstmp #infoCnt .price {background-color:#fff;padding: 3px 6px;font-size: 26px;position: absolute;top: 10px;right: 10px;}
+.newstmp #infoCnt .price:after{content:'\20AC';}
+.newstmp #infoCnt .price.red {background-color:#cb0000; color:#fff}
+.newstmp #infoCnt .price.green {background-color:#356927; color:#fff }
+.newstmp  .headCnt h2{margin-left:6px}
+.newstmp .selCont{text-align:center;font-size: 16px;margin: 10px 7px 9px 0;color: #999;}
+.newstmp #allStocksDD{padding: 3px 5px;margin-left: 6px;color: #444;}
+
+
+.newstmp #infoCnt table{border-collapse: collapse;}
+.newstmp #infoCnt table tr{}
+.newstmp #infoCnt table tr td{padding:5px;margin:5px 0}
+.newstmp #infoCnt table tr:nth-child(odd){background-color:#e4e7ef }
+.newstmp #infoCnt .diffPrice {padding: 6px 4px;font-size: 21px;position: absolute;top: 53px;right: 5px;color:#fff;}
+.newstmp .graphStock {text-align: center;font-size: 1.5em;margin: 0;border: solid 7px #1a2a4c;max-width: 593px;border-top: none;padding: 6px;}
+
+.newstmp .dk-option.red {color: rgb(211, 29, 29); }
+.newstmp .dk-option.green {color: rgb(31, 211, 29);}
+	  

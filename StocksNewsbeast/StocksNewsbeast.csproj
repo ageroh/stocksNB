@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{19A2D09E-BA3C-47E9-A9A1-B242EA3CBF4D}</ProjectGuid>
+    <ProjectGuid>{41FE5C62-A881-470B-B679-7B5E259EE51B}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StocksNews</RootNamespace>
-    <AssemblyName>StocksNews</AssemblyName>
+    <RootNamespace>StocksNewsBeast</RootNamespace>
+    <AssemblyName>StocksNewsBeast</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -50,21 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\dropkick.css" />
-    <Content Include="css\stocks.css" />
-    <Content Include="css\style.css" />
     <Content Include="GetStocksForWidgetN.aspx" />
     <Content Include="js\dropkick.js" />
-    <Content Include="js\Flash.js" />
-    <Content Include="js\jquery-1.8.3.min.js" />
-    <Content Include="js\NewsFlash.js" />
-    <Content Include="js\NewsStocks.js" />
     <Content Include="js\NewsXa.js" />
-    <Content Include="js\stocks.js" />
-    <Content Include="js\xa.js" />
-    <Content Include="media\Close.svg" />
-    <Content Include="media\metoxes - real time.swf" />
-    <Content Include="media\metoxes.swf" />
-    <Content Include="media\newspapers-widget.jpg" />
     <Content Include="media\real-on.png" />
     <Content Include="media\stock-search-arrow-bg.png" />
     <Content Include="media\stock-search-arrow-down-hover.png" />
@@ -79,6 +67,22 @@
     <Content Include="media\stock-search-input.png" />
     <Content Include="media\stock-search-reload-hover.png" />
     <Content Include="media\stock-search-reload.png" />
+    <Content Include="NBScripts\stocksIndexN.sql" />
+    <Content Include="NBScripts\StocksIndexN.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="StocksOnePage.aspx" />
+    <Content Include="js\NewsStocks.js" />
+    <Content Include="js\NewsFlash.js" />
+    <Content Include="NBScripts\stocksWidgetN.sql" />
+    <Content Include="NBScripts\stocksWidgetN.xslt" />
+    <Content Include="css\stocks.css" />
+    <Content Include="css\style.css" />
+    <Content Include="js\jquery-1.8.3.min.js" />
+    <Content Include="media\Close.svg" />
+    <Content Include="media\metoxes - real time.swf" />
+    <Content Include="media\metoxes.swf" />
+    <Content Include="media\newspapers-widget.jpg" />
     <Content Include="media\stock.png" />
     <Content Include="media\stocks\metoxesBottom.jpg" />
     <Content Include="media\stocks\metoxesTop.jpg" />
@@ -86,17 +90,15 @@
     <Content Include="media\stocks\metoxes_V3.jpg" />
     <Content Include="media\stocks\newsbeast_01.jpg" />
     <Content Include="media\tp-logo.png" />
-    <Content Include="NBScripts\stocksIndexN.sql" />
-    <Content Include="NBScripts\StocksIndexN.xslt">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="NBScripts\stocksWidgetN.sql" />
-    <Content Include="NBScripts\stocksWidgetN.xslt" />
+    <Content Include="NBScripts\stocksIndex.sql" />
+    <Content Include="NBScripts\StocksIndex.xslt" />
+    <Content Include="NBScripts\stocksWidget.sql" />
+    <Content Include="NBScripts\stocksWidget.xslt" />
     <Content Include="NBScripts\stocksWidgetXML.sql" />
     <Content Include="NBScripts\stocksWidgetXML.xslt" />
-    <Content Include="StocksPageN.aspx" />
-    <Content Include="StocksWidgetN.aspx" />
+    <Content Include="StocksWidget.aspx" />
     <Content Include="Web.config" />
+    <Content Include="StocksPage.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common.cs">
@@ -109,24 +111,31 @@
     <Compile Include="GetStocksForWidgetN.aspx.designer.cs">
       <DependentUpon>GetStocksForWidgetN.aspx</DependentUpon>
     </Compile>
+    <Compile Include="StocksOnePage.aspx.cs">
+      <DependentUpon>StocksOnePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StocksOnePage.aspx.designer.cs">
+      <DependentUpon>StocksOnePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StocksPageN.aspx.cs">
-      <DependentUpon>StocksPageN.aspx</DependentUpon>
+    <Compile Include="StocksPage.aspx.cs">
+      <DependentUpon>StocksPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="StocksPageN.aspx.designer.cs">
-      <DependentUpon>StocksPageN.aspx</DependentUpon>
+    <Compile Include="StocksPage.aspx.designer.cs">
+      <DependentUpon>StocksPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="StocksWidgetN.aspx.cs">
-      <DependentUpon>StocksWidgetN.aspx</DependentUpon>
+    <Compile Include="StocksWidget.aspx.cs">
+      <DependentUpon>StocksWidget.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="StocksWidgetN.aspx.designer.cs">
-      <DependentUpon>StocksWidgetN.aspx</DependentUpon>
+    <Compile Include="StocksWidget.aspx.designer.cs">
+      <DependentUpon>StocksWidget.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\PublishProfiles\stocks-news.pubxml" />
+    <None Include="Properties\PublishProfiles\pub for Stock.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -134,6 +143,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -147,9 +157,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>30658</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:7443/</IISUrl>
+          <IISUrl>http://localhost:36991/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
