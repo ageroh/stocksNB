@@ -6,11 +6,28 @@
     <base target="_parent" />
     <link rel="stylesheet" media="screen" href="css/stocks.css?v=30" />
     <script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
-    <script type="text/javascript" src="js/NewsFlash.js?v=30" charset="windows-1253" ></script>
-    <script type="text/javascript" src="js/NewsStocks.js?v=30" charset="windows-1253" ></script>
-   
+    <script type="text/javascript" src="js/NewsFlash.js?v=41" charset="windows-1253" ></script>
+    <script type="text/javascript" src="js/NewsStocks.js?v=42" charset="windows-1253" ></script>
+   <script type="text/javascript">
+       
+       function initDom() {
+           window.document.domain = "newsbeast.gr"; //getUrlVars()["u"];
+       }
+
+       function getUrlVars() {
+           var vars = [], hash;
+           var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+           for (var i = 0; i < hashes.length; i++) {
+               hash = hashes[i].split('=');
+               vars.push(hash[0]);
+               vars[hash[0]] = hash[1];
+           }
+           return vars;
+       }
+
+   </script>
 </head>
-<body>
+<body onload="initDom()">
     <div id="customWidgetStocks">
         <div id="wrapper">
             <div id="content">
@@ -32,7 +49,7 @@
                     <div class="stock-footr">
                         <span style="font-size: 9px;">Οι τιμές παρουσιάζονται με 15λεπτη καθυστέρηση. Πηγή: Globalsoft&nbsp;</span>
                         <p>
-                        <a  href="http://newsbeast.cantaloop.gr/xrimatistirio" target="_parent">
+                        <a  href="http://stage.newsbeast.gr/xrimatistirio" target="_parent">
                             ΔΕΙΤΕ ΟΛΕΣ ΤΙΣ ΜΕΤΟΧΕΣ</a> »
                         </p>
                     </div>

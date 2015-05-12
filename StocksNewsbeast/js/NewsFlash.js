@@ -264,7 +264,7 @@ var Flash = {
              '         </tr>                                                                       ' +
              '     </tbody>                                                                                             ' +
              '   </table>                                                                                                 ' +
-             '   <a href="http://newsbeast.cantaloop.gr/xrimatistirio" ><div style="height: 179px; position: relative; overflow: hidden;" class="scroll-viewport">                ' +
+             '   <a href="http://stage.newsbeast.gr/xrimatistirio" ><div style="height: 179px; position: relative; overflow: hidden;" class="scroll-viewport">                ' +
              '      <div class="scrolled" style="position: absolute;">        </div>                                         ' +
              '  </div></a>  ' +
              '   <div class="stock-search">        <input type="text" /><input type="image" src="media/stock-search-input-img.png" />    </div>  ' + 

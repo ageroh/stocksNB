@@ -13,7 +13,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/01/2015 13:29:05</publishTime>
     </File>
     <File Include="bin/StocksNewsBeast.dll">
-      <publishTime>04/09/2015 14:54:41</publishTime>
+      <publishTime>05/12/2015 10:57:18</publishTime>
     </File>
     <File Include="css/dropkick.css">
       <publishTime>04/09/2015 12:43:01</publishTime>
@@ -22,7 +22,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/01/2015 16:42:54</publishTime>
     </File>
     <File Include="css/style.css">
-      <publishTime>04/09/2015 14:50:09</publishTime>
+      <publishTime>04/23/2015 17:16:34</publishTime>
     </File>
     <File Include="GetStocksForWidget.aspx">
       <publishTime>02/17/2015 10:37:40</publishTime>
@@ -40,13 +40,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/09/2015 10:42:30</publishTime>
     </File>
     <File Include="js/NewsFlash.js">
-      <publishTime>04/09/2015 11:14:20</publishTime>
+      <publishTime>04/22/2015 15:24:49</publishTime>
     </File>
     <File Include="js/NewsStocks.js">
-      <publishTime>04/09/2015 12:31:20</publishTime>
+      <publishTime>05/11/2015 16:56:04</publishTime>
     </File>
     <File Include="js/NewsXa.js">
-      <publishTime>04/09/2015 10:42:30</publishTime>
+      <publishTime>04/22/2015 15:24:49</publishTime>
     </File>
     <File Include="js/stocks.js">
       <publishTime>03/31/2015 11:47:34</publishTime>
@@ -133,7 +133,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/09/2015 14:31:29</publishTime>
     </File>
     <File Include="NBScripts/StocksIndex.xslt">
-      <publishTime>04/09/2015 14:35:43</publishTime>
+      <publishTime>05/12/2015 10:53:50</publishTime>
     </File>
     <File Include="NBScripts/stocksIndexN.sql">
       <publishTime>04/09/2015 10:42:05</publishTime>
@@ -163,16 +163,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/16/2015 18:39:26</publishTime>
     </File>
     <File Include="StocksOnePage.aspx">
-      <publishTime>04/09/2015 14:54:28</publishTime>
+      <publishTime>05/12/2015 10:52:55</publishTime>
     </File>
     <File Include="StocksPage.aspx">
-      <publishTime>04/09/2015 14:54:28</publishTime>
+      <publishTime>04/23/2015 17:18:18</publishTime>
     </File>
     <File Include="StocksPageN.aspx">
       <publishTime>04/01/2015 13:33:17</publishTime>
     </File>
     <File Include="StocksWidget.aspx">
-      <publishTime>04/09/2015 14:54:25</publishTime>
+      <publishTime>05/11/2015 16:56:03</publishTime>
     </File>
     <File Include="StocksWidgetN.aspx">
       <publishTime>04/01/2015 13:31:30</publishTime>

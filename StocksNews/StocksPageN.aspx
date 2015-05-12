@@ -8,7 +8,7 @@
     <meta charset="UTF-8" />
 	<title>Χρηματιστήριο</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <link rel="stylesheet" media="screen" href="css/style.css?v=25" />
+    <link rel="stylesheet" media="screen" href="css/style.css?v=34" />
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/NewsXa.js?v=23" charset="windows-1253" ></script>
 
@@ -134,9 +134,16 @@
         <span style="display: block;margin-bottom: .5em;">Δεκαήμερη μεταβολή κλεισίματος της μετοχής.</span>
         <div class="ct-chart ct-major-second"></div>
     </div>
-<div class="selCont">
+    <div class="selCont">
         <span>Eπιλέξτε άλλη μετοχή:</span>
         <select id="allStocksDD" name="allStocksDD" class="stockDDClass"></select>
+        <div class="lezandaDD">
+            <ul>
+                <li class="red">Αρνητική Μεταβολή</li>
+                <li class="green">Θετική Μεταβολή</li>
+                <li>Αμετάβλητη</li>
+            </ul>
+        </div>
         <span style="display:block;font-size:12px;margin-top:10px">Οι τιμές παρουσιάζονται με 15λεπτη καθυστέρηση. Πηγή: <strong>Globalsoft</strong></span>
     </div>
 

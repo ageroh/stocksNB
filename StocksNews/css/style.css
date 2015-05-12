@@ -80,6 +80,12 @@ h1{color:#6d6e71;font-size:20px;letter-spacing: 5px;margin:20px auto;}
 .newstmp #infoCnt .diffPrice {padding: 6px 4px;font-size: 21px;position: absolute;top: 53px;right: 5px;}
 .newstmp .graphStock {text-align: center;font-size: 1.5em;margin: 0;border: solid 7px #EEEBED;max-width: 593px;border-top: none;padding: 6px;}
 
-.newstmp .dk-option.red {color: rgb(211, 29, 29); }
-.newstmp .dk-option.green {color: rgb(31, 211, 29);}
-	  
+.newstmp .dk-option.red,.newstmp .dk-selected.red {color: rgb(211, 29, 29); }
+.newstmp .dk-option.green,.newstmp .dk-selected.green {color: rgb(31, 211, 29);}
+
+
+.newstmp .lezandaDD {position: relative;font-size: 10px;margin: 0px;text-align: center;}
+.newstmp .lezandaDD ul li {display: inline; padding:0px;}
+.newstmp .lezandaDD ul li.green:before  {color: rgb(31, 211, 29);}
+.newstmp .lezandaDD ul li.red:before{color: rgb(211, 29, 29);}
+.newstmp .lezandaDD ul li:before {content: ' \25CF';font-size: 20px; margin:2px;}

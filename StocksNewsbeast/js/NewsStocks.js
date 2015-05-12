@@ -266,7 +266,7 @@ jQuery(function () {
                 var rowData = data[key];
                 var v = parseFloat(rowData['b']);
                 html += '<tr class="' + (rowindex % 2 == 0 ? 'color' : '') + '">';
-                html += '<td class="name ' + (v < 0 ? 'down' : (v > 0 ? 'up' : '')) + '"> <a href="http://newsbeast.cantaloop.gr/xrimatistirio?symbol=' + rowData['val'] + '">' + key + '</a></td>';
+                html += '<td class="name ' + (v < 0 ? 'down' : (v > 0 ? 'up' : '')) + '"> <a href="http://stage.newsbeast.gr/xrimatistirio?symbol=' + rowData['val'] + '">' + key + '</a></td>';
                 html += '<td class="price ' + (v < 0 ? 'down' : (v > 0 ? 'up' : '')) + '">' + rowData['a'] + '</td>';
                 html += '<td class="change ' + (v < 0 ? 'down' : (v > 0 ? 'up' : '')) + '">' + rowData['c'] + '</td>';
                 html += '<td class="percent ' + (v < 0 ? 'down' : (v > 0 ? 'up' : '')) + '">' + rowData['b'] + '%</td>';
@@ -304,7 +304,7 @@ jQuery(function () {
                             
                             //redirect to correct page.
                             if( $(this).parent().parent().find(".valStock").text() != null)
-                                window.top.location.href = "http://newsbeast.cantaloop.gr/xrimatistirio?symbol=" + $(this).parent().parent().find(".valStock").text();
+                                window.top.location.href = "http://stage.newsbeast.gr/xrimatistirio?symbol=" + $(this).parent().parent().find(".valStock").text() + "#iFrameXA";
                             
                         });
                     }
